@@ -1,4 +1,5 @@
 import { LocalDate, LocalTime } from 'js-joda';
+import { Recinto } from './recinto';
 
 export class Evento {
   id: number;
@@ -11,21 +12,21 @@ export class Evento {
   precioMinimo: string;
   precioMaximo: string;
   normas: string;
-  recinto: string;
+  recinto: Recinto;
 
 
   constructor() {
-    this.id = 0; // o cualquier otro valor por defecto
+    this.id = 0; 
     this.nombre = '';
     this.descripcionCorta = '';
     this.descripcionExtendida = '';
     this.foto = '';
-    this.fechaEvento = LocalDate.now(); // o cualquier otra inicialización adecuada
-    this.horaEvento = LocalTime.now(); // o cualquier otra inicialización adecuada
+    this.fechaEvento = LocalDate.now();
+    this.horaEvento = LocalTime.now(); 
     this.precioMinimo = '';
     this.precioMaximo = '';
     this.normas = '';
-    this.recinto = '';
+    this.recinto = new Recinto;
   }
 
 }

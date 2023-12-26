@@ -1,6 +1,5 @@
-import { LocalDate } from 'js-joda'; // Asegúrate de importar la librería adecuada para manejar fechas en TypeScript
-
-export class UsuarioDTO {
+import { LocalDate } from 'js-joda'; 
+export class Usuario {
   id: number;
   nombre: string;
   apellido: string;
@@ -9,7 +8,7 @@ export class UsuarioDTO {
   fechaAlta: LocalDate;
 
   constructor() {
-    this.id = 0; // o cualquier otro valor por defecto
+    this.id = 0; 
     this.nombre = '';
     this.apellido = '';
     this.mail = '';

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-6 table-container">
+        <h2> Eventos</h2>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="hidden">Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción Corta</th>
+                    <th>Fecha</th>
+                    <th>Precio Mínimo</th>
+                    <th>Precio Máximo</th>
+                    <th>Recinto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let evento of eventos">
+                    <td class="hidden">{{evento.id}}</td>
+                    <td>{{evento.nombre}}</td>
+                    <td>{{evento.descripcionCorta}}</td>
+                    <td>{{evento.fechaEvento}}</td>
+                    <td>{{evento.precioMinimo}}</td>
+                    <td>{{evento.precioMaximo}}</td>
+                    <td>{{evento.recinto.nombre}}</td>
+                    <td><button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
