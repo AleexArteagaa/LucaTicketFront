@@ -30,4 +30,7 @@ export class EventosListComponent implements OnInit{
       });
   };
 
+  public getEventoDetails(evento: Evento) {
+    this.router.navigate(['/evento', evento.getId()]);
+  }
 }

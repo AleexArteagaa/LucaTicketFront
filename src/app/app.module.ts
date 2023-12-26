@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosListComponent } from './components/eventos-list/eventos-list.component';
 import { FormsModule } from '@angular/forms';
+import { EventoDetailComponent } from './components/evento-detail/evento-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventosListComponent
+    EventosListComponent,
+    EventoDetailComponent
   ],
   imports: [
     BrowserModule,

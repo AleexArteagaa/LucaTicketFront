@@ -29,4 +29,88 @@ export class Evento {
     this.recinto = new Recinto;
   }
 
+  public getId(): number {
+    return this.id;
+  }
+
+  public setId(id: number ): void{
+    this.id=id;
+  }
+
+  public getNombre(): string {
+    return this.nombre;
+  }
+
+  public setNombre(nombre: string): void{
+    this.nombre=nombre;
+  }
+
+  public getDescripcionCorta(): string{
+    return this.descripcionCorta;
+  }
+
+  public setDescripcionCorta(descripcionCorta: string): void{
+    this.descripcionCorta=descripcionCorta;
+  }
+
+  public getDescripcionExtendida(): string{
+    return this.descripcionExtendida;
+  }
+
+  public setDescripcionExtendida(descripcionExtendida: string): void{
+    this.descripcionExtendida=descripcionExtendida;
+  }
+
+  public getFoto(): string{
+    return this.foto;
+  }
+
+  public setFoto(foto: string): void{
+    this.foto=foto;
+  }
+
+  public getFechaEvento(): LocalDate{
+    return this.fechaEvento;
+  }
+
+  public setFechaEvento(fechaEvento: LocalDate): void{
+    this.fechaEvento=fechaEvento;
+  }
+  public getHoraEvento(): LocalTime{
+    return this.horaEvento;
+  }
+
+  public setHoraEvento(horaEvento: LocalTime): void{
+    this.horaEvento=horaEvento;
+  }
+  public getPrecioMinimo(): string{
+    return this.precioMinimo;
+  }
+
+  public setPrecioMinimo(precioMinimo: string): void{
+    this.precioMinimo=precioMinimo;
+  }
+  public getPrecioMaximo(): string{
+    return this.precioMaximo;
+  }
+
+  public setPrecioMaximo(precioMaximo: string): void{
+    this.precioMaximo=precioMaximo;
+  }
+  public getNormas(): string{
+    return this.normas;
+  }
+
+  public setNormas(normas: string): void{
+    this.normas=normas;
+  }
+  public getRecinto(): Recinto{
+    return this.recinto;
+  }
+
+  public setRecinto(recinto: Recinto): void{
+    this.recinto=recinto;
+  }
+
+
 }
