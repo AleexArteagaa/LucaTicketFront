@@ -9,13 +9,15 @@ import { EventosListComponent } from './components/eventos-list/eventos-list.com
 import { FormsModule } from '@angular/forms';
 import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuarios-list.component';
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventosListComponent,
     UsuariosListComponent,
-    AltaUsuarioComponent
+    AltaUsuarioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
