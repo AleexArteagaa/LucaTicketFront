@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Evento } from '../../model/evento';
 import { EventosService } from '../../service/eventos.service';
+import e from 'express';
 
 @Component({
   selector: 'app-eventos-list',
@@ -28,6 +29,14 @@ export class EventosListComponent implements OnInit{
       .subscribe(data => {
         this.eventos = data;
       });
+  };
+
+  deleteEvento(evento: Evento): void {
+    this.eventosService.deleteEvento(evento)
+      .subscribe(data => {
+        
+        this.eventos = this.eventos.filter(u => u !== evento);
+      })
   };
 
 }
