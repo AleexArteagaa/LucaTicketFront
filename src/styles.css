@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* estilos.css */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: rgb(60, 51, 185);
+  }
+  
+  .logo {
+    max-width: 100px;
+  }
+  
+  .links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
+  }
+  
+  .links a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: rgb(69, 142, 226);
+  }
+  

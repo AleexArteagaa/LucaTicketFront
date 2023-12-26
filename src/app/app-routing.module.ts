@@ -7,4 +7,13 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+const routes: Routes = [
+	{
+		path: '/',
+		component: HomeComponent
+	},
+
+];
+
 export class AppRoutingModule { }
