@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { EventoDetailComponent } from './components/Evento/evento-detail/evento-
     AltaUsuarioComponent,
     HomeComponent,
     AltaEventoComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    AltaUsuarioPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     provideClientHydration(),
