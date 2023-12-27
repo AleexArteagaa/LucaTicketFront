@@ -5,6 +5,7 @@ import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuari
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
+import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   { 
     path: 'eventos', 
     component: EventosListComponent 
+  },
+  { 
+    path: 'eventos/ciudad/:ciudad', 
+    component: EventosCiudadListComponent 
   },
   { 
     path: 'usuarios', 
