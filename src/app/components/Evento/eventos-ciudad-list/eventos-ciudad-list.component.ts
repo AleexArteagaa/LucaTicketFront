@@ -10,7 +10,7 @@ import { EventosService } from '../../../service/eventos.service';
 })
 export class EventosCiudadListComponent implements OnInit {
   eventos: Evento[] = [];
-  ciudad: string = 'Default';
+  ciudad: string = ' ';
 
   constructor(
     private eventosService: EventosService,

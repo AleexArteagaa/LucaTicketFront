@@ -28,6 +28,7 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     DetalleUsuarioComponent,
     EventosCiudadListComponent,
     EditarEventoComponent,
+
   ],
   imports: [
     BrowserModule,
