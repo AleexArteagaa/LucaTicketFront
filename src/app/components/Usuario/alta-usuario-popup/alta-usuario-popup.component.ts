@@ -1,6 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-alta-usuario-popup',
