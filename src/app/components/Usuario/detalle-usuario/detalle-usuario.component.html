@@ -1,29 +1,17 @@
-<div *ngIf="usuario" class="container">
-    <div class="card">
-        <div class="card-header">
-            Detalles del Usuario
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <label>ID:</label>
-                <p>{{ usuario.id }}</p>
+<div class="container">
+    <div class="usuario-box" *ngIf="usuario">
+        <div class="contenido">
+            <div class="imagen-usuario">
+                <img src="./assets/fdp3.png" alt="Imagen de usuario">
             </div>
-            <div class="form-group">
-                <label>Nombre:</label>
-                <p>{{ usuario.nombre }}</p>
-            </div>
-            <div class="form-group">
-                <label>Apellido:</label>
-                <p>{{ usuario.apellido }}</p>
-            </div>
-            <div class="form-group">
-                <label>Email:</label>
-                <p>{{ usuario.mail }}</p>
-            </div>
-            <div class="form-group">
-                <label>Fecha de alta:</label>
-                <p>{{ usuario.fechaAlta }}</p>
+            <div class="info-usuario">
+                <h2><strong>{{ usuario.nombre }} {{ usuario.apellido }}</strong></h2>
+                <p>Id: {{ usuario.id }}</p>
+                <p>Correo: {{ usuario.mail }}</p>
+                <p>Contraseña: {{ usuario.contrasenia }}</p>
+                <p>Fecha de alta: {{ usuario.fechaAlta }}</p>
             </div>
         </div>
     </div>
+    <button class="btn-volver" (click)="volverListado()">< Volver</button>
 </div>

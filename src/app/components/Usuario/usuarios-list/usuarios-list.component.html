@@ -1,10 +1,10 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4">
-    <h1>Usuarios</h1>
+    <h1><strong>Usuarios</strong></h1>
+    <button class="btn-alta-usuario">Alta usuario</button>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre completo</th>
                 <th>Mail</th>
                 <th>Fecha de alta</th>
@@ -13,7 +13,6 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
-                <td>{{ user.id }}</td>
                 <td><span class="clickDetalleUsuario" (click)="getUserDetails(user.id)">{{ user.nombre }} {{ user.apellido }}</span></td>
                 <td>{{ user.mail }}</td>
                 <td>{{ user.fechaAlta }}</td>
