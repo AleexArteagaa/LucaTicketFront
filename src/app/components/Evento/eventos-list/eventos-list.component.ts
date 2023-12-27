@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Evento } from '../../../model/evento';
 import { EventosService } from '../../../service/eventos.service';
+import { EventoDetailComponent } from '../evento-detail/evento-detail.component';
 
 @Component({
   selector: 'app-eventos-list',
@@ -31,5 +32,10 @@ export class EventosListComponent implements OnInit {
       console.log("Evento borrado");
       this.eventos = this.eventos.filter((u) => u !== evento);
     });
+  }
+
+  editarEvento(eventoId: Number): void{
+    console.log("-----Entra en editar el evento con ID:" +eventoId );
+    this.router.navigate(['/editar-evento', eventoId]);
   }
 }

@@ -7,6 +7,7 @@ import { EventoDetailComponent } from './components/Evento/evento-detail/evento-
 import { HomeComponent } from './components/home/home.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
+import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   },
   { path: 'usuarios/:id', 
     component: DetalleUsuarioComponent
+  },
+  {
+    path: 'editar-evento/:id',
+    component: EditarEventoComponent
   }
 ];
 

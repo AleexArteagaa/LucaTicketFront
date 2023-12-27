@@ -48,3 +48,9 @@ h1{
     text-align: center;
 
 }
+
+.clickDetalleEvento:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
+}
