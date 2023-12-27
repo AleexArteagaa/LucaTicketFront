@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Evento } from '../model/evento';
+import { EventoAlta } from '../model/evento-alta';
+
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +23,9 @@ export class EventosService {
 
   public getEventoById(id: number){
     return this.http.get<Evento>(this.eventosUrl + "/" + id);
+  }
+
+  public altaEvento(evento:EventoAlta) {
+    return this.http.post<Evento>(this.eventosUrl, evento);
   }
 }

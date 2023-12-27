@@ -32,4 +32,8 @@ export class EventosListComponent implements OnInit {
       this.eventos = this.eventos.filter((u) => u !== evento);
     });
   }
+
+  public irAltaEvento() {
+    this.router.navigate(['/alta-evento']);
+  }
 }

@@ -32,7 +32,7 @@ const routes: Routes = [
     component: DetalleUsuarioComponent
   },
   {
-    path: 'altaEvento', 
+    path: 'alta-evento', 
     component: AltaEventoComponent
   }
 ];

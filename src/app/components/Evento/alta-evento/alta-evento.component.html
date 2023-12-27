@@ -1,1 +1,42 @@
-<p>alta-evento works!</p>
+<div class="col-md-6">
+    <h2 class="text-center">Crear nuevo evento</h2>
+  <form>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input  [(ngModel)]="evento.nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
+    </div>
+  
+    <div class="form-group">
+      <label for="nombre">Descripción Corta:</label>
+      <input  [(ngModel)]="evento.descripcionCorta" placeholder="Descripción Corta" name="descripcionCorta" class="form-control" id="descripcionCorta">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Descripción Extendida:</label>  
+      <textarea type="text" [(ngModel)]="evento.descripcionExtendida" placeholder="Descripción Extendida" name="descripcionExtendida" class="form-control" id="descripcionExtendida">
+      </textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="nombre">Fecha:</label>
+      <input type="date" [(ngModel)]="evento.fechaEvento" placeholder="Fecha" name="fechaEvento" class="form-control" id="fechaEvento">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Hora:</label>
+      <input type="time" [(ngModel)]="evento.horaEvento" placeholder="Hora" name="horaEvento" class="form-control" id="horaEvento">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Normas:</label>
+      <input  [(ngModel)]="evento.normas" placeholder="Normas" name="normas" class="form-control" id="normas">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Recinto:</label>
+      <input  [(ngModel)]="evento.recinto" placeholder="Recinto" name="recinto" class="form-control" id="recinto">
+    </div>
+  
+    <button class="btn btn-success" (click)="altaEvento()">Create</button>
+  </form>
+</div>
