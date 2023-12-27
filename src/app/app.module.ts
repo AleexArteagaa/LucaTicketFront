@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/editar-usuario.component';
+import { MatCardModule } from '@angular/material/card';
+import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,11 @@ import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/edit
     HomeComponent,
     AltaEventoComponent,
     DetalleUsuarioComponent,
+    AltaUsuarioPopupComponent,
     EventosCiudadListComponent,
     EditarEventoComponent,
     EditarUsuarioComponent,
+    EditarEventoComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/edit
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [
     provideClientHydration(),

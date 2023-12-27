@@ -9,7 +9,7 @@ export class UsuariosService {
   constructor(private http: HttpClient) {}
 
   private userUrl = 'http://demo-service-env.eba-rhzridzm.eu-west-3.elasticbeanstalk.com/usuario';
-  //private userUrl = 'http://localhost:5000/usuario';
+  //private userUrl = 'http://localhost:4444/usuario';
 
   public getUsers() {
     console.log("entra en get users");
