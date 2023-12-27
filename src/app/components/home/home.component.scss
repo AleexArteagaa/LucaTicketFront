@@ -1,6 +1,39 @@
 .home-container {
-    background-color: hsl(0, 0%, 100%); /* Color de fondo */
-    background-size: cover; /* Cubre todo el área */
-    background-repeat: no-repeat; /* No se repite la imagen */
-  }
-  
+  text-align: center;
+  margin-top: 100px; /* Ajusta el margen superior según tus necesidades */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1{
+  font-size: 80px;
+  color: rgb(69, 142, 226);
+}
+
+p{
+  font-size: 50px;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color:rgb(69, 142, 226);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #025f9c;
+}
