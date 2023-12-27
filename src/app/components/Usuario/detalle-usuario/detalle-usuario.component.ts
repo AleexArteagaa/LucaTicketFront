@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../../../model/usuario';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../../service/usuarios.service';
 
 @Component({
@@ -13,9 +13,10 @@ export class DetalleUsuarioComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private userService: UsuariosService
   ) {}
-  
+
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const userId = Number(params.get('id'));
@@ -25,5 +26,9 @@ export class DetalleUsuarioComponent {
         });
       }
     });
+  }
+
+  public volverListado() {
+    this.router.navigate(['/usuarios']);
   }
 }

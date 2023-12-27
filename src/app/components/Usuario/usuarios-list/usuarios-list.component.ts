@@ -26,8 +26,6 @@ export class UsuariosListComponent implements OnInit {
   }
 
   public getUserDetails(userId: number) {
-    console.log("entra en get user details");
-    console.log(userId);
     this.router.navigate(['/usuarios', userId]);
   }
 }

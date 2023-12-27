@@ -1,9 +1,49 @@
-.btn{
-    margin-top: 5px;
-    margin-bottom: 5px;
+h2 {
+  color: rgb(69, 142, 226);
+  font-weight: bold;
+  margin-bottom: 4%;
+  margin-top: 3%;
 }
 
-.clickDetalleUsuario:hover{
-    cursor: pointer;
-    text-decoration: underline;
+.clickDetalleUsuario:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+tr {
+  border-bottom: 1px solid rgb(69, 142, 226);
+}
+
+th {
+  color: rgb(69, 142, 226);
+}
+
+td,
+th {
+  padding: 10px;
+  text-align: left;
+}
+
+tbody {
+  background-color: white;
+  color: black;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btn-danger :hover {
+  background-color: #e01c30;
+}
+
+.btn-secondary:hover {
+  background-color: #3c4146;
 }

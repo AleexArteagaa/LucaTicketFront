@@ -21,7 +21,6 @@ export class UsuariosService {
   }
 
   public createUser(user: Usuario) {
-    console.log("entra en crear user");
     return this.http.post<Usuario>(this.userUrl, user);
   }
 
