@@ -15,6 +15,8 @@ import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/de
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
+import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
+import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-pop
     HomeComponent,
     AltaEventoComponent,
     DetalleUsuarioComponent,
-    AltaUsuarioPopupComponent
+    AltaUsuarioPopupComponent,
+    EventosCiudadListComponent,
+    EditarEventoComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,9 @@ import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usu
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
+import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
+import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
+import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 
 const routes: Routes = [
   {
@@ -15,6 +18,10 @@ const routes: Routes = [
   { 
     path: 'eventos', 
     component: EventosListComponent 
+  },
+  { 
+    path: 'eventos/ciudad/:ciudad', 
+    component: EventosCiudadListComponent 
   },
   { 
     path: 'usuarios', 
@@ -29,6 +36,14 @@ const routes: Routes = [
   },
   { path: 'usuarios/:id', 
     component: DetalleUsuarioComponent
+  },
+  {
+    path: 'alta-evento', 
+    component: AltaEventoComponent
+  },
+  {
+    path: 'editar-evento/:id',
+    component: EditarEventoComponent
   }
 ];
 

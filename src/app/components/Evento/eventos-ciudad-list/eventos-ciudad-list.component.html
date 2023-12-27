@@ -1,14 +1,13 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="col-md-6 table-container">
-        <h1> Eventos</h1>
-        <button class="btn btn-success" (click)="irAltaEvento()">Añadir</button>
+        <h2> Eventos listados por ciudad</h2>
 
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th class="hidden">Id</th>
                     <th>Nombre</th>
+                    <th>Ciudad</th>
                     <th>Descripción Corta</th>
                     <th>Fecha</th>
                     <th>Precio Mínimo</th>
@@ -19,19 +18,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let evento of eventos">
-                    <td><span class="clickDetalleEvento" (click)="getEventoDetails(evento.id)">{{evento.nombre}}</span></td>
+                    <td class="hidden">{{evento.id}}</td>
+                    <td>{{evento.nombre}}</td>
+                    <td>{{evento.recinto.localidad}}</td>
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>
                     <td>{{evento.precioMinimo}}</td>
                     <td>{{evento.precioMaximo}}</td>
                     <td>{{evento.recinto.nombre}}</td>
-                    <td class="button-container">
-                        <button class="btn btn-danger" (click)="deleteEvento(evento)">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                        <button class="btn btn-secondary" (click)="editarEvento(evento.id)">
-                            <i class="fa fa-pencil"></i>
-                        </button>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button>
+                        <br>
+                        <button class="btn btn-secondary">Editar evento</button>
                     </td>
                 </tr>
             </tbody>
