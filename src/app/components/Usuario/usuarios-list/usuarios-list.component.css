@@ -1,9 +1,39 @@
-.btn{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 
 .clickDetalleUsuario:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; 
+}
+
+h1{
+    color: rgb(69, 142, 226);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table.table-striped  {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table.table-striped th {
+    background-color: #23527c !important;
+    color: #fff !important;
+    text-align: center;
+}
+
+.table.table-striped tbody tr:nth-child(odd) td {
+    background-color: #aed4f5 !important; 
+    color: #000 !important;
+    text-align: center;
+}
+
+.table.table-striped tbody tr:nth-child(even) td {
+    background-color: #d6e9f9 !important; 
+    color: #000 !important;
+    text-align: center;
 }

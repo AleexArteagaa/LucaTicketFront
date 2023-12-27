@@ -1,13 +1,16 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container mt-4">
-    <h2>Listado de Usuarios</h2>
-    <table class="table">
+    <h1>Usuarios</h1>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre completo</th>
                 <th>Mail</th>
                 <th>Fecha de alta</th>
-                <th>Acciones</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -16,10 +19,13 @@
                 <td><span class="clickDetalleUsuario" (click)="getUserDetails(user.id)">{{ user.nombre }} {{ user.apellido }}</span></td>
                 <td>{{ user.mail }}</td>
                 <td>{{ user.fechaAlta }}</td>
-                <td>
-                    <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar usuario</button>
-                    <br>
-                    <button class="btn btn-secondary">Editar usuario</button>
+                <td class="button-container">
+                    <button class="btn btn-danger" (click)="deleteUser(user)">
+                        <i class="fa fa-trash"></i>
+                    </button>                   
+                    <button class="btn btn-secondary">
+                        <i class="fa fa-pencil"></i>
+                    </button>
                 </td>
             </tr>
         </tbody>
