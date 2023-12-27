@@ -8,7 +8,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="hidden">ID</th>
                     <th>Nombre</th>
                     <th>Descripción Corta</th>
                     <th>Fecha</th>
@@ -20,7 +19,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let evento of eventos">
-                    <td class="hidden">{{evento.id}}</td>
                     <td>{{evento.nombre}}</td>
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>
