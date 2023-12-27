@@ -19,6 +19,12 @@ export class EventosListComponent implements OnInit {
     });
   }
 
+  public getEventoDetails(eventoId: number) {
+    console.log("entra en get evento details");
+    console.log(eventoId);
+    this.router.navigate(['/eventos', eventoId]);
+  }
+
   deleteEvento(evento: Evento): void {
     console.log("Entra en la funcion deleteEvento");
     this.eventosService.deleteEvento(evento).subscribe((data) => {

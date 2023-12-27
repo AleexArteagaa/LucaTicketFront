@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventosListComponent } from './components/Evento/eventos-list/eventos-list.component';
 import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuarios-list.component';
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
+import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 
@@ -22,6 +23,9 @@ const routes: Routes = [
   { 
     path: 'alta-usuario', 
     component: AltaUsuarioComponent
+  },
+  { path: 'eventos/:id', 
+    component: EventoDetailComponent 
   },
   { path: 'usuarios/:id', 
     component: DetalleUsuarioComponent
