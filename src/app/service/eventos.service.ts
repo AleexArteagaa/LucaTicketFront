@@ -19,4 +19,12 @@ export class EventosService {
   public getEventos() {
     return this.http.get<Evento[]>(this.eventosUrl);
   }
+
+  public deleteEvento(evento:Evento) {
+    return this.http.delete(this.eventosUrl + "/"+ evento.id);
+  }
+
+  public getEventoById(id: number){
+    return this.http.get<Evento>(this.eventosUrl + "/" + id);
+  }
 }
