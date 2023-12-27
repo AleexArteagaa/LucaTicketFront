@@ -24,4 +24,10 @@ export class UsuariosListComponent implements OnInit {
       this.users = this.users.filter((u) => u !== user);
     });
   }
+
+  public getUserDetails(userId: number) {
+    console.log("entra en get user details");
+    console.log(userId);
+    this.router.navigate(['/usuarios', userId]);
+  }
 }

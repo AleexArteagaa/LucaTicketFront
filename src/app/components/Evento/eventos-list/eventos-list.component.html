@@ -17,13 +17,17 @@
             <tbody>
                 <tr *ngFor="let evento of eventos">
                     <td class="hidden">{{evento.id}}</td>
-                    <td><a style="text-decoration: none; cursor: pointer; color: blue;" (click)="getEventoDetails(evento)">{{evento.nombre}}</a></td>
+                    <td><a style="text-decoration: none; cursor: pointer; color: blue;" (click)="getEventoDetails(evento.id)">{{evento.nombre}}</a></td>
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>
                     <td>{{evento.precioMinimo}}</td>
                     <td>{{evento.precioMaximo}}</td>
                     <td>{{evento.recinto.nombre}}</td>
-                    <td><button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button></td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button>
+                        <br>
+                        <button class="btn btn-secondary">Editar evento</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

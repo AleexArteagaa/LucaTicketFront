@@ -6,3 +6,8 @@
 .table-container {
     width: 100%; 
 }
+
+.btn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
