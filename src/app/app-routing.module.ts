@@ -5,6 +5,7 @@ import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuari
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
+import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   },
   { path: 'usuarios/:id', 
     component: DetalleUsuarioComponent
+  },
+  {
+    path: 'altaEvento', 
+    component: AltaEventoComponent
   }
 ];
 
