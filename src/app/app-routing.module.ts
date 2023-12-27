@@ -44,7 +44,7 @@ const routes: Routes = [
   {
     path: 'editar-evento/:id',
     component: EditarEventoComponent
-  }
+  },
 ];
 
 @NgModule({
