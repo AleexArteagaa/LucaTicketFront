@@ -1,0 +1,29 @@
+<div *ngIf="usuario" class="container">
+    <div class="card">
+        <div class="card-header">
+            Detalles del Usuario
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label>ID:</label>
+                <p>{{ usuario.id }}</p>
+            </div>
+            <div class="form-group">
+                <label>Nombre:</label>
+                <p>{{ usuario.nombre }}</p>
+            </div>
+            <div class="form-group">
+                <label>Apellido:</label>
+                <p>{{ usuario.apellido }}</p>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <p>{{ usuario.mail }}</p>
+            </div>
+            <div class="form-group">
+                <label>Fecha de alta:</label>
+                <p>{{ usuario.fechaAlta }}</p>
+            </div>
+        </div>
+    </div>
+</div>

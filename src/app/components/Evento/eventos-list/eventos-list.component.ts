@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Evento } from '../../model/evento';
-import { EventosService } from '../../service/eventos.service';
+import { Evento } from '../../../model/evento';
+import { EventosService } from '../../../service/eventos.service';
 
 @Component({
   selector: 'app-eventos-list',
@@ -20,7 +20,9 @@ export class EventosListComponent implements OnInit {
   }
 
   deleteEvento(evento: Evento): void {
+    console.log("Entra en la funcion deleteEvento");
     this.eventosService.deleteEvento(evento).subscribe((data) => {
+      console.log("Evento borrado");
       this.eventos = this.eventos.filter((u) => u !== evento);
     });
   }

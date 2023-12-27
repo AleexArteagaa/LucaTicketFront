@@ -23,7 +23,11 @@
                     <td>{{evento.precioMinimo}}</td>
                     <td>{{evento.precioMaximo}}</td>
                     <td>{{evento.recinto.nombre}}</td>
-                    <td><button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button></td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button>
+                        <br>
+                        <button class="btn btn-secondary">Editar evento</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

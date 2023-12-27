@@ -24,4 +24,8 @@ export class UsuariosService {
     console.log("entra en crear user");
     return this.http.post<Usuario>(this.userUrl, user);
   }
+
+  public getUserById(id:number){
+    return this.http.get<Usuario>(this.userUrl + '/' + id);
+  }
 }

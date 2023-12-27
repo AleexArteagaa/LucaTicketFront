@@ -1,0 +1,9 @@
+.btn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.clickDetalleUsuario:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

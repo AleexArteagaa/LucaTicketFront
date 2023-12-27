@@ -15,6 +15,7 @@ export class EventosService {
   }
 
   public deleteEvento(evento: Evento) {
+    console.log("Entra en el servicio de borrar evento y esta es la ruta para borrar: " + this.eventosUrl + '/' + evento.id);
     return this.http.delete(this.eventosUrl + '/' + evento.id);
   }
 }
