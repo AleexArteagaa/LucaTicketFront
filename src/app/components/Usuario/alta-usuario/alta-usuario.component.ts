@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Usuario } from '../../../model/usuario';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../../service/usuarios.service';
-import { MatDialog } from '@angular/material/dialog';
-import { AltaUsuarioPopupComponent } from '../alta-usuario-popup/alta-usuario-popup.component';
 
 @Component({
   selector: 'app-alta-usuario',
@@ -13,7 +11,7 @@ import { AltaUsuarioPopupComponent } from '../alta-usuario-popup/alta-usuario-po
 export class AltaUsuarioComponent {
   usuario: Usuario = new Usuario();
 
-  constructor(private router: Router, private userService: UsuariosService, public dialog: MatDialog) {}
+  constructor(private router: Router, private userService: UsuariosService) {}
 
   guardarUsuario() {
     console.log(this.usuario.fechaAlta);
@@ -21,7 +19,6 @@ export class AltaUsuarioComponent {
       (response) => {
         console.log('Usuario añadido:', response); 
         this.usuario = new Usuario();
-        this.openPopup();
       },
       (error) => {
         console.error('Error al añadir usuario:', error);
@@ -29,15 +26,6 @@ export class AltaUsuarioComponent {
     );
   }
 
-  openPopup(): void {
-    const dialogRef = this.dialog.open(AltaUsuarioPopupComponent, {
-      width: '250px',
-    });
-
-    setTimeout(() => {
-      dialogRef.close();
-    }, 3000);
-  }
 
   ngOnInit(): void {}
 }

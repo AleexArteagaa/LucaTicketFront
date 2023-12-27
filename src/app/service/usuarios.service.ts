@@ -24,6 +24,10 @@ export class UsuariosService {
     return this.http.post<Usuario>(this.userUrl, user);
   }
 
+  public editarUsuario(id: number, usuario: Usuario) {
+    return this.http.put<Usuario>(this.userUrl + '/' + id, usuario);
+  }
+
   public getUserById(id:number){
     return this.http.get<Usuario>(this.userUrl + '/' + id);
   }

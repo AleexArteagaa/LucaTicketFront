@@ -31,6 +31,10 @@ export class UsuariosListComponent implements OnInit {
     this.router.navigate(['/usuarios', userId]);
   }
 
+  public editarUsuario(userId: number) {
+    this.router.navigate(['/editar-usuario', userId]);
+  }
+
   public irAltaUsuario() {
     this.router.navigate(['/alta-usuario']);
   }
