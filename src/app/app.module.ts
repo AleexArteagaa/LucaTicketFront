@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,11 +12,13 @@ import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usu
 import { HomeComponent } from './components/home/home.component';
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
+import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventosListComponent,
+    EventoDetailComponent,
     UsuariosListComponent,
     AltaUsuarioComponent,
     HomeComponent,
@@ -27,10 +29,10 @@ import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/de
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent]
 })
