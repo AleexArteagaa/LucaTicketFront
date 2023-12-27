@@ -8,19 +8,24 @@ import { AltaUsuarioPopupComponent } from '../alta-usuario-popup/alta-usuario-po
 @Component({
   selector: 'app-alta-usuario',
   templateUrl: './alta-usuario.component.html',
-  styleUrls: ['./alta-usuario.component.css']
+  styleUrls: ['./alta-usuario.component.css'],
 })
 export class AltaUsuarioComponent {
   usuario: Usuario = new Usuario();
 
-  constructor(private router: Router, private userService: UsuariosService, public dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private userService: UsuariosService,
+    public dialog: MatDialog
+  ) {}
 
   guardarUsuario() {
     console.log(this.usuario.fechaAlta);
     this.userService.createUser(this.usuario).subscribe(
       (response) => {
-        console.log('Usuario añadido:', response); 
+        console.log('Usuario añadido:', response);
         this.usuario = new Usuario();
+        this.volverAListado();
         this.openPopup();
       },
       (error) => {
@@ -36,7 +41,11 @@ export class AltaUsuarioComponent {
 
     setTimeout(() => {
       dialogRef.close();
-    }, 3000);
+    }, 4000);
+  }
+
+  volverAListado() {
+    this.router.navigate(['/usuarios']);
   }
 
   ngOnInit(): void {}

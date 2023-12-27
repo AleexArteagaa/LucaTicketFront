@@ -1,4 +1,4 @@
-.container {
+#container {
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -35,5 +35,23 @@ label {
 }
 
 .btn-guardar:hover {
+  background-color: rgba(69, 142, 226, 0.8);
+}
+
+.volver-container {
+  margin-top: 20px;
+}
+
+.btn-volver {
+  padding: 10px 20px;
+  background-color: rgb(69, 142, 226);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
   background-color: rgba(69, 142, 226, 0.8);
 }

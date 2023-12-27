@@ -14,9 +14,11 @@ import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
+import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/editar-usuario.component';
+import { MatCardModule } from '@angular/material/card';
+import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     AltaUsuarioPopupComponent,
     EventosCiudadListComponent,
     EditarEventoComponent,
-
+    EditarUsuarioComponent,
+    EditarEventoComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [
     provideClientHydration(),
