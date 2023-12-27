@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 
@@ -26,6 +28,7 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     HomeComponent,
     AltaEventoComponent,
     DetalleUsuarioComponent,
+    AltaUsuarioPopupComponent,
     EventosCiudadListComponent,
     EditarEventoComponent,
 
@@ -35,6 +38,7 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     provideClientHydration(),

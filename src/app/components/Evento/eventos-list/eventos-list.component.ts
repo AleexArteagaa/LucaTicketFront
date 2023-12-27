@@ -11,6 +11,7 @@ import { EventoDetailComponent } from '../evento-detail/evento-detail.component'
 })
 export class EventosListComponent implements OnInit {
   eventos: Evento[] = [];
+  cityName: string = '';
 
   constructor(private router: Router, private eventosService: EventosService) {}
 
@@ -26,6 +27,12 @@ export class EventosListComponent implements OnInit {
     this.router.navigate(['/eventos', eventoId]);
   }
 
+  public getEventoNombre(localidad: string) {
+    console.log("entra en get evento por nombre");
+    console.log(localidad);
+    this.router.navigate(['/eventos/nombre', localidad]);
+  }
+
   deleteEvento(evento: Evento): void {
     console.log("Entra en la funcion deleteEvento");
     this.eventosService.deleteEvento(evento).subscribe((data) => {
@@ -34,6 +41,10 @@ export class EventosListComponent implements OnInit {
     });
   }
 
+  public irAltaEvento() {
+    this.router.navigate(['/alta-evento']);
+  }
+  
   editarEvento(eventoId: Number): void{
     console.log("-----Entra en editar el evento con ID:" +eventoId );
     this.router.navigate(['/editar-evento', eventoId]);

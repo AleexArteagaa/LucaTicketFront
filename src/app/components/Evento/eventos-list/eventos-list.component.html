@@ -1,16 +1,17 @@
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="col-md-6 table-container">
         <h1> Eventos</h1>
+        <button class="btn btn-success" (click)="irAltaEvento()">Añadir</button>
         <div class="col-md-6 table-container float-right">
             <form class="form-inline my-2 my-lg-0" id="cityForm">
-                <input type="text" id="cityInput" placeholder="Introduce ciudad" aria-label="Introduce ciudad">
-                <button class="btn btn-buscar-ciudad my-2 my-sm-0" type="submit">Buscar ciudad</button>
+                <input type="text" id="cityInput" placeholder="Introduce ciudad" aria-label="Introduce ciudad"[(ngModel)]="cityName">
+                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)">Buscar ciudad</button>
             </form>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="hidden">ID</th>
                     <th>Nombre</th>
                     <th>Descripción Corta</th>
                     <th>Fecha</th>
@@ -22,7 +23,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let evento of eventos">
-                    <td class="hidden">{{evento.id}}</td>
                     <td><span class="clickDetalleEvento" (click)="getEventoDetails(evento.id)">{{evento.nombre}}</span></td>
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Evento } from '../model/evento';
+import { EventoAlta } from '../model/evento-alta';
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,7 @@ import { Evento } from '../model/evento';
 export class EventosService {
   constructor(private http: HttpClient) {}
 
-  private eventosUrl = 'http://localhost:8081/evento';
+  private eventosUrl = 'http://localhost:3333/evento';
 
   public getEventos() {
     return this.http.get<Evento[]>(this.eventosUrl);
@@ -25,5 +27,9 @@ export class EventosService {
 
   public getEventoById(id: number){
     return this.http.get<Evento>(this.eventosUrl + "/" + id);
+  }
+
+  public altaEvento(evento:EventoAlta) {
+    return this.http.post<Evento>(this.eventosUrl, evento);
   }
 }

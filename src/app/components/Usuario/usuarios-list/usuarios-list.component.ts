@@ -6,7 +6,7 @@ import { Usuario } from '../../../model/usuario';
 @Component({
   selector: 'app-usuarios-list',
   templateUrl: './usuarios-list.component.html',
-  styleUrl: './usuarios-list.component.css'
+  styleUrl: './usuarios-list.component.css',
 })
 export class UsuariosListComponent implements OnInit {
   users: Usuario[] = [];
@@ -14,9 +14,11 @@ export class UsuariosListComponent implements OnInit {
   constructor(private router: Router, private userService: UsuariosService) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((data) => {
-      this.users = data;
-    });
+    if (this.users.length == 0) {
+      this.userService.getUsers().subscribe((data) => {
+        this.users = data;
+      });
+    }
   }
 
   deleteUser(user: Usuario): void {
@@ -27,5 +29,9 @@ export class UsuariosListComponent implements OnInit {
 
   public getUserDetails(userId: number) {
     this.router.navigate(['/usuarios', userId]);
+  }
+
+  public irAltaUsuario() {
+    this.router.navigate(['/alta-usuario']);
   }
 }
