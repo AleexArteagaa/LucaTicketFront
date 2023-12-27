@@ -1,0 +1,55 @@
+<div *ngIf="evento" class="container">
+    <div class="row">
+        <!-- Columna para las etiquetas -->
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>ID:</label>
+                <p>{{ evento.id }}</p>
+            </div>
+            <div class="form-group">
+                <label>Nombre:</label>
+                <p>{{ evento.nombre}}</p>
+            </div>
+            <div class="form-group">
+                <label>Descripción Corta:</label>
+                <p>{{ evento.descripcionCorta}}</p>
+            </div>
+            <div class="form-group">
+                <label>Descripción Extendida:</label>
+                <p>{{ evento.descripcionExtendida }}</p>
+            </div>
+            <div class="form-group">
+                <label>Fecha Evento:</label>
+                <p>{{ evento.fechaEvento }}</p>
+            </div>
+            <div class="form-group">
+                <label>Hora de Evento:</label>
+                <p>{{ evento.horaEvento }}</p>
+            </div>
+            <div class="form-group">
+                <label>Precio Mínimo:</label>
+                <p>{{ evento.precioMinimo }}</p>
+            </div>
+            <div class="form-group">
+                <label>Precio Máximo:</label>
+                <p>{{ evento.precioMaximo }}</p>
+            </div>
+        </div>
+        <!-- Columna para la foto -->
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Foto:</label>
+                <p><img style="width:100%"  src="{{evento.foto}}" alt="Foto del evento con ID: {{evento.id}}" /></p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Normas:</label>
+        <p>{{ evento.normas }}</p>
+    </div>
+    <div class="form-group">
+        <label>Recinto:</label>
+        <p><span class="bold">Nombre Recinto:</span> {{ evento.recinto.nombre }}</p>
+        <p><span class="bold">Localidad:</span> {{ evento.recinto.localidad }}</p>
+    </div>
+</div>

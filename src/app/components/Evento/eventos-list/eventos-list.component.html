@@ -19,7 +19,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let evento of eventos">
-                    <td>{{evento.nombre}}</td>
+                    <td><a style="text-decoration: none; cursor: pointer; color: blue;" (click)="getEventoDetails(evento.id)">{{evento.nombre}}</a></td>
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>
                     <td>{{evento.precioMinimo}}</td>
