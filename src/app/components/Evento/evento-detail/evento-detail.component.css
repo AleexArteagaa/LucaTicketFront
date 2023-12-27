@@ -1,0 +1,16 @@
+label, .bold {
+    font-weight: bold;
+}
+
+/* Estilos para reducir el espacio entre el div row y la siguiente etiqueta */
+.row {
+    margin-bottom: -15px; /* Ajusta este valor según sea necesario */
+}
+
+.form-group:not(:first-child) {
+    margin-top: 0; /* Elimina el margen superior del form-group excepto el primero */
+}
+
+p {
+    text-align: justify;
+}

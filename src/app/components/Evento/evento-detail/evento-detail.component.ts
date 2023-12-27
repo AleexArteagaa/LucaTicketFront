@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Evento } from '../../model/evento';
-import { EventosService } from '../../service/eventos.service';
+import { Evento } from '../../../model/evento';
+import { EventosService } from '../../../service/eventos.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -9,22 +9,22 @@ import { Observable } from 'rxjs';
   templateUrl: './evento-detail.component.html',
   styleUrl: './evento-detail.component.css'
 })
-export class EventoDetailComponent implements OnInit {
+export class EventoDetailComponent {
 
-  evento!: Observable<Evento>;
+  evento!: Evento;
 
   constructor(private route: ActivatedRoute, private eventosService: EventosService) {
     console.log("----------Componente DetalleEvento inicializado. Elegido Evento.");
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(
-      params => {
-        this.evento = this.getEventoById(Number(params.get("id")));
-      })
-  }
-
-  public getEventoById(id: number): Observable<Evento> {
-    return this.eventosService.getEventoById(id);
+    this.route.paramMap.subscribe((params) => {
+      const eventoId = Number(params.get('id'));
+      if (!isNaN(eventoId)) {
+        this.eventosService.getEventoById(eventoId).subscribe((data) => {
+          this.evento = data;
+        });
+      }
+    });
   }
 }

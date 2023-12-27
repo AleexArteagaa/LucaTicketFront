@@ -7,12 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosListComponent } from './components/Evento/eventos-list/eventos-list.component';
 import { FormsModule } from '@angular/forms';
-import { EventoDetailComponent } from './components/evento-detail/evento-detail.component';
 import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuarios-list.component';
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
 import { HomeComponent } from './components/home/home.component';
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
+import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
 
 @NgModule({
   declarations: [
