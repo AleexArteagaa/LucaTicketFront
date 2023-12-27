@@ -4,8 +4,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>Nombre completo</th>
                 <th>Mail</th>
                 <th>Fecha de alta</th>
                 <th>Acciones</th>
@@ -14,12 +13,13 @@
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{ user.id }}</td>
-                <td>{{ user.nombre }}</td>
-                <td>{{ user.apellido }}</td>
+                <td><span class="clickDetalleUsuario" (click)="getUserDetails(user.id)">{{ user.nombre }} {{ user.apellido }}</span></td>
                 <td>{{ user.mail }}</td>
                 <td>{{ user.fechaAlta }}</td>
                 <td>
                     <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar usuario</button>
+                    <br>
+                    <button class="btn btn-secondary">Editar usuario</button>
                 </td>
             </tr>
         </tbody>

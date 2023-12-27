@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EventosListComponent } from './components/eventos-list/eventos-list.component';
+import { EventosListComponent } from './components/Evento/eventos-list/eventos-list.component';
 import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuarios-list.component';
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
 import { HomeComponent } from './components/home/home.component';
+import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   { 
     path: 'alta-usuario', 
     component: AltaUsuarioComponent
+  },
+  { path: 'usuarios/:id', 
+    component: DetalleUsuarioComponent
   }
 ];
 
