@@ -38,3 +38,6 @@ header {
     background-color: rgb(69, 142, 226); 
     margin: 5px 0; 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

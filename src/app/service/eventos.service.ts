@@ -10,7 +10,7 @@ import { EventoAlta } from '../model/evento-alta';
 export class EventosService {
   constructor(private http: HttpClient) {}
 
-  private eventosUrl = 'http://localhost:8081/evento';
+  private eventosUrl = 'http://localhost:3333/evento';
 
   public getEventos() {
     return this.http.get<Evento[]>(this.eventosUrl);
