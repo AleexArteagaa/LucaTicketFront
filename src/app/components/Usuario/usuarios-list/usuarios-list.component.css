@@ -1,49 +1,39 @@
-h2 {
-  color: rgb(69, 142, 226);
-  font-weight: bold;
-  margin-bottom: 4%;
-  margin-top: 3%;
+
+.clickDetalleUsuario:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.clickDetalleUsuario:hover {
-  text-decoration: underline;
-  cursor: pointer;
+.button-container {
+    display: flex;
+    gap: 10px; 
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+h1{
+    color: rgb(69, 142, 226);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-tr {
-  border-bottom: 1px solid rgb(69, 142, 226);
+.table.table-striped  {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-th {
-  color: rgb(69, 142, 226);
+.table.table-striped th {
+    background-color: #23527c !important;
+    color: #fff !important;
+    text-align: center;
 }
 
-td,
-th {
-  padding: 10px;
-  text-align: left;
+.table.table-striped tbody tr:nth-child(odd) td {
+    background-color: #aed4f5 !important; 
+    color: #000 !important;
+    text-align: center;
 }
 
-tbody {
-  background-color: white;
-  color: black;
-}
-
-.btn {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.btn-danger :hover {
-  background-color: #e01c30;
-}
-
-.btn-secondary:hover {
-  background-color: #3c4146;
+.table.table-striped tbody tr:nth-child(even) td {
+    background-color: #d6e9f9 !important; 
+    color: #000 !important;
+    text-align: center;
 }

@@ -1,17 +1,21 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container">
     <div class="col-md-6 table-container">
-        <h2> Eventos</h2>
+        <h1> Eventos</h1>
 
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="hidden">Id</th>
+                    <th class="hidden">ID</th>
                     <th>Nombre</th>
                     <th>Descripción Corta</th>
                     <th>Fecha</th>
                     <th>Precio Mínimo</th>
                     <th>Precio Máximo</th>
                     <th>Recinto</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,10 +27,13 @@
                     <td>{{evento.precioMinimo}}</td>
                     <td>{{evento.precioMaximo}}</td>
                     <td>{{evento.recinto.nombre}}</td>
-                    <td>
-                        <button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button>
-                        <br>
-                        <button class="btn btn-secondary">Editar evento</button>
+                    <td class="button-container">
+                        <button class="btn btn-danger" (click)="deleteEvento(evento)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fa fa-pencil"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>
