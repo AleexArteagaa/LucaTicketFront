@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/detalle-usuario.component';
 import { EventoDetailComponent } from './components/Evento/evento-detail/evento-detail.component';
+import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EventoDetailComponent } from './components/Evento/evento-detail/evento-
     AltaUsuarioComponent,
     HomeComponent,
     AltaEventoComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    EventosCiudadListComponent,
   ],
   imports: [
     BrowserModule,
