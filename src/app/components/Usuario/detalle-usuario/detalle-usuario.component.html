@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="usuario-box" *ngIf="usuario">
         <div class="contenido">
@@ -13,5 +14,7 @@
             </div>
         </div>
     </div>
-    <button class="btn-volver" (click)="volverListado()"> Volver</button>
+    <a href="/usuarios" class="btn btn-primary mb-3 custom-button">
+        <i class="fa fa-reply"></i> Volver
+    </a>
 </div>
