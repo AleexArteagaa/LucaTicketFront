@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../model/usuario';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../../service/usuarios.service';
+import { EditarUsuarioPopupComponent } from '../editar-usuario-popup.component/editar-usuario-popup.component';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -11,6 +12,7 @@ import { UsuariosService } from '../../../service/usuarios.service';
 export class EditarUsuarioComponent implements OnInit{
 
   usuario!: Usuario;
+  dialog: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +37,23 @@ export class EditarUsuarioComponent implements OnInit{
       (response) => {
         console.log('Usuario editado:', response); 
         this.usuario = new Usuario();
+        this.openPopup();
         this.irAUsuarios();
       },
       (error) => {
         console.error('Error al editar usuario:', error);
       }
     );
+  }
+
+  openPopup(): void {
+    const dialogRef = this.dialog.open(EditarUsuarioPopupComponent, {
+      width: '250px',
+    });
+
+    setTimeout(() => {
+      dialogRef.close();
+    }, 4000);
   }
 
   public irAUsuarios() {
