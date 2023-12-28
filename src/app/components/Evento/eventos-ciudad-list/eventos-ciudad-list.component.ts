@@ -13,6 +13,8 @@ import { EventosService } from '../../../service/eventos.service';
 export class EventosCiudadListComponent implements OnInit {
   eventos: Evento[] = [];
   localidad: string = ' ';
+  mostrarMensaje: boolean = false;
+
 
   constructor(
     private eventosService: EventosService,
@@ -28,6 +30,10 @@ export class EventosCiudadListComponent implements OnInit {
         this.eventos = data;
       });
     });
+
+    setTimeout(() => {
+      this.mostrarMensaje = true;
+    }, 1000);
   }
 
   deleteEvento(evento: Evento): void {
@@ -47,5 +53,9 @@ export class EventosCiudadListComponent implements OnInit {
     console.log("entra en get evento details");
     console.log(eventoId);
     this.router.navigate(['/eventos', eventoId]);
+  }
+
+  public volverListado() {
+    this.router.navigate(['/eventos']);
   }
 }

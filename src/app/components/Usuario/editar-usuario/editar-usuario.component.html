@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div *ngIf="usuario" class="container mt-4" id="container">
     <h2><strong>Editar Usuario</strong></h2>
     <form>
@@ -26,9 +27,15 @@
         <input type="date" [(ngModel)]="usuario.fechaAlta" name="fechaAlta" class="form-control" id="fechaAlta" required>
       </div>
 
-      <button class="btn-guardar" (click)="guardarCambios()">Guardar cambios</button>
+      <div class="text-center">
+        <button class="btn btn-guardar" (click)="guardarCambios()">
+            <i class="fa fa-save"></i> Guardar
+        </button>
+    </div>
     </form>
   </div>
   <div *ngIf="usuario" class="container mt-4">
-    <button class="btn-volver" (click)="irAUsuarios()">Volver</button>
+    <button class="btn btn-primary mb-3 custom-button" (click)="irAUsuarios()">
+      <i class="fa fa-reply"></i> Volver
+  </button>
 </div>

@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <div class="col-md-6 table-container">
-        <h1><strong>Eventos en {{ localidad }}</strong></h1>
+        <div class="row align-items-center">
+                <div class="col-md-4 d-flex justify-content-start">
+                    <button class="btn btn-primary mb-3 custom-button" (click)="volverListado()">
+                        <i class="fa fa-reply"></i> Volver
+                    </button>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h1><strong>Eventos en {{ localidad }}</strong></h1>
+                </div>
+        </div>
         <ng-container *ngIf="eventos.length > 0">
         <table class="table table-striped">
             <thead>
@@ -35,8 +44,8 @@
             </tbody>
         </table>
     </ng-container>
-    <div *ngIf="eventos.length === 0">
-        <p>Listado vacío</p>
+    <div *ngIf="eventos.length === 0 && mostrarMensaje">
+        <p class="noEvento">No hay eventos disponibles para esta ciudad</p>
     </div>
     </div>
 </div>
