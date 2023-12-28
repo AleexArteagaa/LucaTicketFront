@@ -32,7 +32,15 @@ export class EditarUsuarioComponent implements OnInit{
   }
 
   guardarCambios() {
-    console.log(this.usuario.fechaAlta);
+    const fecha = new Date(this.usuario.fechaAlta);
+
+    const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, '-');
+    
+    this.usuario.fechaAlta=fechaFormateada;
     this.userService.editarUsuario(this.usuario.id, this.usuario).subscribe(
       (response) => {
         console.log('Usuario editado:', response); 
