@@ -30,17 +30,29 @@ export class EditarUsuarioComponent implements OnInit{
   }
 
   guardarCambios() {
-    console.log(this.usuario.fechaAlta);
+    let mensajesError: string[] = [];
     this.userService.editarUsuario(this.usuario.id, this.usuario).subscribe(
       (response) => {
-        console.log('Usuario editado:', response); 
         this.usuario = new Usuario();
         this.irAUsuarios();
       },
       (error) => {
-        console.error('Error al editar usuario:', error);
+        if (error.error && error.error.message) {
+          mensajesError = error.error.message;
+          this.mostrarAlertaErrores(mensajesError); 
+        } else {
+          console.error('Error desconocido:', error);
+        }
       }
     );
+  }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
+    });
+    alert(mensajeAlerta);
   }
 
   public irAUsuarios() {

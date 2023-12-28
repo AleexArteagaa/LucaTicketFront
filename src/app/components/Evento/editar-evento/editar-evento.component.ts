@@ -32,7 +32,7 @@ export class EditarEventoComponent implements OnInit {
   }
 
   editarEvento(valores: any) {
-
+    let mensajesError: string[] = [];
     const fecha = new Date(valores.fechaEvento);
 
     const fechaFormateada = fecha.toLocaleDateString('es-ES', {
@@ -54,11 +54,29 @@ export class EditarEventoComponent implements OnInit {
     this.eventoEdit.recinto = valores.nombreRecinto;
 
     this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
-      .subscribe(data => {
-        console.log("Evento editado correctamente.");
-        alert("Evento editado correctamente.");
-        this.volverAlListado();
-      });
+      .subscribe(
+        (response) => {
+          this.evento = new Evento();
+          this.eventoEdit = new EventoAlta;
+          this.volverAlListado();
+        },
+        (error) => {
+          if (error.error && error.error.message) {
+            mensajesError = error.error.message;
+            this.mostrarAlertaErrores(mensajesError); 
+          } else {
+            console.error('Error desconocido:', error);
+          }
+        }
+      );
+  }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
+    });
+    alert(mensajeAlerta);
   }
 
   public volverAlListado() {
