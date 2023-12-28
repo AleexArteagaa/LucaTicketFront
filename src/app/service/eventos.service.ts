@@ -32,4 +32,8 @@ export class EventosService {
   public altaEvento(evento:EventoAlta) {
     return this.http.post<Evento>(this.eventosUrl, evento);
   }
+
+  public editarEvento(eventoId: number, evento: EventoAlta){
+    return this.http.put<Evento>(this.eventosUrl + "/" + eventoId, evento);
+  }
 }

@@ -3,11 +3,34 @@
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+    margin-left: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+#cityForm, #cityInput {
+    display: flex;
+    align-items: center;
+    max-height: 40px; 
+}
+
+#cityInput {
+    padding: 4px;
+    line-height: 1.5;
+}
+
+.row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-md-4 {
+    flex: 1;
+    text-align: center;
+}
+
   
   .btn-buscar-ciudad:hover {
     background-color: rgba(69, 142, 226, 0.8);
@@ -35,7 +58,6 @@
 h1{
     color: rgb(69, 142, 226);
     text-align: center;
-    margin-bottom: 20px;
 }
 
 .table.table-striped  {
@@ -65,7 +87,6 @@ h1{
 }
 
 .clickDetalleEvento:hover {
-        cursor: pointer;
-        text-decoration: underline;
-        color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }

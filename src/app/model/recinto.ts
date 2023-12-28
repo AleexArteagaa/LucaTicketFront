@@ -2,9 +2,17 @@ export class Recinto {
     nombre: string;
     localidad: string;
 
-    constructor() {
+    constructor(nombre?: string) {
 
-        this.nombre = '';
+        this.nombre = nombre || '';
         this.localidad = '';
+    }
+
+      public getNombre(): string{
+        return this.nombre;
+      }
+    
+      public setNombre(nombre: string): void{
+        this.nombre=nombre;
       }
 }

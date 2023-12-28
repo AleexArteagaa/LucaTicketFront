@@ -1,13 +1,21 @@
-<div class="container">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container mt-4">
     <div class="col-md-6 table-container">
-        <h2> Eventos en {{ localidad }}</h2>
+        <div class="row align-items-center">
+                <div class="col-md-4 d-flex justify-content-start">
+                    <button class="btn btn-primary mb-3 custom-button" (click)="volverListado()">
+                        <i class="fa fa-reply"></i> Volver
+                    </button>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h1><strong>Eventos en {{ localidad }}</strong></h1>
+                </div>
+        </div>
         <ng-container *ngIf="eventos.length > 0">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="hidden">Id</th>
                     <th>Nombre</th>
-                    <th>Ciudad</th>
                     <th>Descripción Corta</th>
                     <th>Fecha</th>
                     <th>Precio Mínimo</th>
@@ -18,25 +26,26 @@
             </thead>
             <tbody>
                 <tr *ngFor="let evento of eventos">
-                    <td class="hidden">{{evento.id}}</td>
-                    <td>{{evento.nombre}}</td>
-                    <td>{{evento.recinto.localidad}}</td>
+                    <td><span class="clickDetalleEvento" (click)="getEventoDetails(evento.id)">{{evento.nombre}}</span></td>                    
                     <td>{{evento.descripcionCorta}}</td>
                     <td>{{evento.fechaEvento}}</td>
                     <td>{{evento.precioMinimo}}</td>
                     <td>{{evento.precioMaximo}}</td>
                     <td>{{evento.recinto.nombre}}</td>
-                    <td>
-                        <button class="btn btn-danger" (click)="deleteEvento(evento)"> Borrar Evento</button>
-                        <br>
-                        <button class="btn btn-secondary">Editar evento</button>
+                    <td class="button-container">
+                        <button class="btn btn-danger" (click)="deleteEvento(evento)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button class="btn btn-secondary" (click)="editarEvento(evento.id)">
+                            <i class="fa fa-pencil"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </ng-container>
-    <div *ngIf="eventos.length === 0">
-        <p>Listado vacío</p>
+    <div *ngIf="eventos.length === 0 && mostrarMensaje">
+        <p class="noEvento">No hay eventos disponibles para esta ciudad</p>
     </div>
     </div>
 </div>

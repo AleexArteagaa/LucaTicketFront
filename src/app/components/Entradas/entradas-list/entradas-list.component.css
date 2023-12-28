@@ -1,0 +1,72 @@
+/* Estilos generales */
+.card-container {
+  width: 70%;
+  margin: 0 auto; /* Para centrar el contenedor en la pantalla */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 2%;
+}
+
+.card {
+  flex: 0 1 calc(25% - 20px); /* Mostrar 4 columnas por fila en tamaño normal */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.card-date {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.btn-comprar {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(69, 142, 226);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: rgba(69, 142, 226, 0.8);
+}
+
+/* Media queries para tamaños de pantalla más pequeños */
+@media screen and (max-width: 1200px) {
+  .card {
+    flex: 0 1 calc(33.33% - 20px); /* Mostrar 3 columnas por fila */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    flex: 0 1 calc(50% - 20px); /* Mostrar 2 columnas por fila */
+  }
+}
