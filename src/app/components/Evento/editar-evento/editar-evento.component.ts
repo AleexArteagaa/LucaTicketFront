@@ -5,6 +5,9 @@ import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
 import { EventoAlta } from '../../../model/evento-alta';
+import { url } from 'inspector';
+import { GifFotoService } from '../../../service/gif-foto.service';
+import { finalize, tap } from 'rxjs';
 
 @Component({
   selector: 'app-editar-evento',
@@ -16,7 +19,7 @@ export class EditarEventoComponent implements OnInit {
   eventoEdit: EventoAlta = new EventoAlta();
   eventoId!: number;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, private gifFoto: GifFotoService) {
     console.log("----------Componente EditarEvento inicializado.");
   }
 
@@ -42,33 +45,37 @@ export class EditarEventoComponent implements OnInit {
     }).replace(/\//g, '-');
 
     console.log("-----EDITAR EVENTO " + this.eventoId);
-    this.eventoEdit.nombre = valores.nombre;
-    this.eventoEdit.descripcionCorta = valores.desCorta;
-    this.eventoEdit.descripcionExtendida = valores.desExtendida;
-    this.eventoEdit.foto = valores.foto;
-    this.eventoEdit.fechaEvento = fechaFormateada;
-    this.eventoEdit.horaEvento = valores.horaEvento;
-    this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
-    this.eventoEdit.precioMaximo = valores.precioMaximo.substring(0, valores.precioMaximo.length - 2);
-    this.eventoEdit.normas = valores.normas;
-    this.eventoEdit.recinto = valores.nombreRecinto;
 
-    this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
-      .subscribe(
-        (response) => {
-          this.evento = new Evento();
-          this.eventoEdit = new EventoAlta;
-          this.volverAlListado();
-        },
-        (error) => {
-          if (error.error && error.error.message) {
-            mensajesError = error.error.message;
-            this.mostrarAlertaErrores(mensajesError); 
-          } else {
-            console.error('Error desconocido:', error);
+    this.gifFoto.get(valores.foto)
+    .then((url: string) => {
+      this.eventoEdit.foto = url;
+      this.eventoEdit.nombre = valores.nombre;
+      this.eventoEdit.descripcionCorta = valores.desCorta;
+      this.eventoEdit.descripcionExtendida = valores.desExtendida;
+      this.eventoEdit.fechaEvento = fechaFormateada;
+      this.eventoEdit.horaEvento = valores.horaEvento;
+      this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
+      this.eventoEdit.precioMaximo = valores.precioMaximo.substring(0, valores.precioMaximo.length - 2);
+      this.eventoEdit.normas = valores.normas;
+      this.eventoEdit.recinto = valores.nombreRecinto;
+
+      this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
+        .subscribe(
+          (response) => {
+            this.evento = new Evento();
+            this.eventoEdit = new EventoAlta;
+            this.volverAlListado();
+          },
+          (error) => {
+            if (error.error && error.error.message) {
+              mensajesError = error.error.message;
+              this.mostrarAlertaErrores(mensajesError); 
+            } else {
+              console.error('Error desconocido:', error);
+            }
           }
-        }
-      );
+        );
+    });
   }
 
   mostrarAlertaErrores(mensajesError: string[]) {
@@ -77,7 +84,7 @@ export class EditarEventoComponent implements OnInit {
       mensajeAlerta += `• ${mensaje}\n`;
     });
     alert(mensajeAlerta);
-  }
+  } 
 
   public volverAlListado() {
     this.router.navigate(['/eventos']);

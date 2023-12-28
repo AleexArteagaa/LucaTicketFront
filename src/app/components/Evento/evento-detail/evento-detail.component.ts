@@ -3,6 +3,7 @@ import { Evento } from '../../../model/evento';
 import { EventosService } from '../../../service/eventos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { GifFotoService } from '../../../service/gif-foto.service';
 
 @Component({
   selector: 'app-evento-detail',
@@ -13,7 +14,7 @@ export class EventoDetailComponent {
 
   evento!: Evento;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private router: Router) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private router: Router, private gifFoto: GifFotoService) {
     console.log("----------Componente DetalleEvento inicializado. Elegido Evento.");
   }
 
