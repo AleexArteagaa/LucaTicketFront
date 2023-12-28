@@ -38,6 +38,10 @@ export class AltaEventoComponent implements OnInit {
       });
   }
 
+  volverAListado() {
+    this.router.navigate(['/eventos']);
+  }
+
   ngOnInit(): void {
   }
 

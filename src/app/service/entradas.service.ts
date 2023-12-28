@@ -20,8 +20,4 @@ export class EntradasService {
 
     return this.http.post<any>(this.pagoUrl, tarjeta, { params });
   }
-
-  public recogerDatos(){
-    return this.http.get<any>(this.pagoUrl);
-  }
 }
