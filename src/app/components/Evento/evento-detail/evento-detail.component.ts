@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Evento } from '../../../model/evento';
 import { EventosService } from '../../../service/eventos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class EventoDetailComponent {
 
   evento!: Evento;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private router: Router) {
     console.log("----------Componente DetalleEvento inicializado. Elegido Evento.");
   }
 
@@ -26,5 +26,9 @@ export class EventoDetailComponent {
         });
       }
     });
+  }
+
+  public volverListado() {
+    this.router.navigate(['/eventos']);
   }
 }

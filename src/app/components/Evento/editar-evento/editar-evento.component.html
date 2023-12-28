@@ -1,1 +1,63 @@
-<p>editar-evento works!</p>
+<div class="container mt-5">
+    <h2 class="text-center">Editar evento</h2>
+    <div *ngIf="evento" class="row justify-content-center">
+      <div class="col-md-8">
+       
+  
+        <form #editarEventoForm="ngForm" (ngSubmit)="editarEvento(editarEventoForm.value)">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="evento.nombre" required/>
+          </div>
+  
+          <div class="form-group">
+            <label for="desCorta">Descripción Corta:</label>
+            <input type="text" class="form-control" name="desCorta" id="desCorta" [(ngModel)]="evento.descripcionCorta" />
+          </div>
+  
+          <div class="form-group">
+            <label for="desExtendida">Descripción Extendida:</label>
+            <input type="text" class="form-control" name="desExtendida" id="desExtendida" [(ngModel)]="evento.descripcionExtendida" />
+          </div>
+  
+          <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="text" class="form-control" name="foto" id="foto" [(ngModel)]="evento.foto" />
+          </div>
+
+          <div class="form-group">
+            <label for="fechaEvento">Fecha Evento:</label>
+            <input type="date" class="form-control" name="fechaEvento" id="fechaEvento" [(ngModel)]="evento.fechaEvento"/>
+          </div>
+  
+          <div class="form-group">
+            <label for="horaEvento">Hora Evento:</label>
+            <input type="time" class="form-control" name="horaEvento" id="horaEvento" [(ngModel)]="evento.horaEvento" />
+          </div>
+  
+          <div class="form-group">
+            <label for="precioMinimo">Precio Mínimo:</label>
+            <input type="text" class="form-control" name="precioMinimo" id="precioMinimo" [(ngModel)]="evento.precioMinimo" />
+          </div>
+  
+          <div class="form-group">
+            <label for="precioMaximo">Precio Máximo:</label>
+            <input type="text" class="form-control" name="precioMaximo" id="precioMaximo" [(ngModel)]="evento.precioMaximo" />
+          </div>
+  
+          <div class="form-group">
+            <label for="normas">Normas:</label>
+            <input type="text" class="form-control" name="normas" id="normas" [(ngModel)]="evento.normas" />
+          </div>
+  
+          <div class="form-group">
+            <label for="nombreRecinto">Nombre Recinto:</label>
+            <input type="text" class="form-control" name="nombreRecinto" id="nombreRecinto" [(ngModel)]="evento.recinto.nombre" />
+          </div>
+
+          <input type="submit" class="btn btn-success" value="Editar evento">
+        </form>
+      </div>
+    </div>
+  </div>
+  
