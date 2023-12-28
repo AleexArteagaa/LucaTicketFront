@@ -1,7 +1,4 @@
-.home-container {
-  text-align: center;
-  margin-top: 100px; /* Ajusta el margen superior según tus necesidades */
-}
+
 
 ul {
   list-style: none;
@@ -10,11 +7,12 @@ ul {
 
 h1{
   font-size: 80px;
-  color: rgb(69, 142, 226);
+  color: rgb(255, 255, 255);
 }
 
 p{
   font-size: 50px;
+  color: #fff;
 }
 
 li {
@@ -36,4 +34,23 @@ button {
 
 button:hover {
   background-color: #025f9c;
+}
+
+.home-container {
+  background-image: url('https://wallpapers.com/images/hd/concert-background-d4zewofzhvhqaesl.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #000000;
+  text-align: center;
+  padding: 50px;
+  height: 92.1vh; /* Hace que el contenedor ocupe el 100% de la altura de la ventana */
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-fluid {
+  padding: 0 !important; /* Anula cualquier padding que se aplique por defecto */
 }

@@ -4,7 +4,7 @@
     <div class="card-content">
       <h3 class="card-title">{{ evento.nombre }}</h3>
       <p class="card-date">{{ evento.fechaEvento }}</p>
-      <button class="btn-comprar">Comprar entrada</button>
+      <button class="btn-comprar" (click)="comprarEntrada(evento.id)">Comprar entrada</button>
     </div>
   </div>
 </div>

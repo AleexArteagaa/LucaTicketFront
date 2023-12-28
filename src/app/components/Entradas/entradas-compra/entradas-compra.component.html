@@ -1,1 +1,27 @@
-<p>entradas-compra works!</p>
+<div class="container">
+    <h2><strong>Compra de Entrada</strong></h2>
+    <form (ngSubmit)="comprarEntrada()">
+      <div class="form-group">
+        <label for="nombreTitular">Nombre del Titular:</label>
+        <input type="text" id="nombreTitular" class="form-control" [(ngModel)]="tarjeta.nombreTitular" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="numeroTarjeta">Número de Tarjeta:</label>
+        <input type="text" id="numeroTarjeta" class="form-control" [(ngModel)]="tarjeta.numeroTarjeta" name="numeroTarjeta" required>
+      </div>
+      <div class="form-group">
+        <label for="mesCaducidad">Mes de Caducidad:</label>
+        <input type="text" id="mesCaducidad" class="form-control" [(ngModel)]="tarjeta.mesCaducidad" name="mesCaducidad" required>
+      </div>
+      <div class="form-group">
+        <label for="yearCaducidad">Año de Caducidad:</label>
+        <input type="text" id="yearCaducidad" class="form-control" [(ngModel)]="tarjeta.yearCaducidad" name="yearCaducidad" required>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV:</label>
+        <input type="password" id="cvv" class="form-control" [(ngModel)]="tarjeta.cvv" name="cvv" required>
+      </div>
+      <button type="submit" class="btn-comprar">Comprar Entrada</button>
+    </form>
+  </div>
+  
