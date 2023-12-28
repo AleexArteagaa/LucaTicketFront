@@ -5,6 +5,8 @@ import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
 import { EventoAlta } from '../../../model/evento-alta';
+import { EditarEventoPopupComponent } from '../editar-evento-popup/editar-evento-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-evento',
@@ -16,7 +18,7 @@ export class EditarEventoComponent implements OnInit {
   eventoEdit: EventoAlta = new EventoAlta();
   eventoId!: number;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, public dialog: MatDialog) {
     console.log("----------Componente EditarEvento inicializado.");
   }
 
@@ -56,9 +58,19 @@ export class EditarEventoComponent implements OnInit {
     this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
       .subscribe(data => {
         console.log("Evento editado correctamente.");
-        alert("Evento editado correctamente.");
+        this.openPopup();
         this.volverAlListado();
       });
+  }
+
+  openPopup(): void {
+    const dialogRef = this.dialog.open(EditarEventoPopupComponent, {
+      width: '250px',
+    });
+
+    setTimeout(() => {
+      dialogRef.close();
+    }, 4000);
   }
 
   public volverAlListado() {

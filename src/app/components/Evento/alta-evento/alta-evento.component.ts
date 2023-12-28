@@ -38,6 +38,8 @@ export class AltaEventoComponent implements OnInit {
     this.eventoService.altaEvento(this.evento)
       .subscribe(data => {
         this.openPopup();
+        this.volverAlListado();
+
       });
   }
 
@@ -52,6 +54,10 @@ export class AltaEventoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public volverAlListado() {
+    this.router.navigate(['/eventos']);
   }
 
 }

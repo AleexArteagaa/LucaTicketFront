@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
 import { EntradasListComponent } from './components/Entradas/entradas-list/entradas-list.component';
 import { EntradasCompraComponent } from './components/Entradas/entradas-compra/entradas-compra.component';
+import { EditarEventoPopupComponent } from './components/Evento/editar-evento-popup/editar-evento-popup.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EntradasCompraComponent } from './components/Entradas/entradas-compra/e
     EditarEventoComponent,
     EntradasListComponent,
     EntradasCompraComponent,
+    EditarEventoPopupComponent,
   ],
   imports: [
     BrowserModule,
