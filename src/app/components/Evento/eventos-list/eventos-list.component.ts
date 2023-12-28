@@ -30,7 +30,7 @@ export class EventosListComponent implements OnInit {
   public getEventoNombre(localidad: string) {
     console.log("entra en get evento por nombre");
     console.log(localidad);
-    this.router.navigate(['/eventos/nombre', localidad]);
+    this.router.navigate(['/eventos/ciudad', localidad]);
   }
 
   deleteEvento(evento: Evento): void {
