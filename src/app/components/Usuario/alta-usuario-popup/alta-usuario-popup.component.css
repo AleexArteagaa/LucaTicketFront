@@ -3,19 +3,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: rgb(69, 142, 226);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .popup-header {
   font-size: 1.5em;
+  background-color: rgb(69, 142, 226);
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .popup-content {
   text-align: center;
-  color: #333;
+  background-color: rgb(69, 142, 226);
+  color: #ffffff;
+  font-size: 1.2em;
 }

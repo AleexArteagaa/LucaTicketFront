@@ -3,6 +3,8 @@ import { EventosService } from '../../../service/eventos.service';
 import { Router } from '@angular/router';
 import { EventoAlta } from '../../../model/evento-alta';
 import { DateTimeFormatter, LocalDate } from 'js-joda';
+import { MatDialog } from '@angular/material/dialog';
+import { AltaEventoPopupComponent } from '../alta-evento-popup/alta-evento-popup.component';
 
 @Component({
   selector: 'app-alta-evento',
@@ -14,7 +16,8 @@ export class AltaEventoComponent implements OnInit {
 
   evento: EventoAlta = new EventoAlta();
 
-  constructor(private router: Router, private eventoService: EventosService) {
+  constructor(private router: Router, private eventoService: EventosService, public dialog: MatDialog)
+  {    
 
   }
 
@@ -34,8 +37,18 @@ export class AltaEventoComponent implements OnInit {
   
     this.eventoService.altaEvento(this.evento)
       .subscribe(data => {
-        alert("Evento generado de forma correcta.");
+        this.openPopup();
       });
+  }
+
+  openPopup(): void {
+    const dialogRef = this.dialog.open(AltaEventoPopupComponent, {
+      width: '250px',
+    });
+
+    setTimeout(() => {
+      dialogRef.close();
+    }, 4000);
   }
 
   ngOnInit(): void {
