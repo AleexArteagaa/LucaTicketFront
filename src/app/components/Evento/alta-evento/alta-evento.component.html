@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4" id="container">
   <h2 class="text-center"><strong>Crear nuevo evento</strong></h2>
-  <form>
+  <form #altaEventoForm="ngForm">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
       <input [(ngModel)]="evento.nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
@@ -18,6 +18,11 @@
       <textarea type="text" [(ngModel)]="evento.descripcionExtendida" placeholder="Descripción Extendida"
         name="descripcionExtendida" class="form-control" id="descripcionExtendida">
       </textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="foto">Foto:</label>
+      <input type="text" class="form-control" name="foto" id="foto" [(ngModel)]="evento.foto" placeholder="Foto"/>
     </div>
 
     <div class="form-group">
@@ -49,7 +54,7 @@
     </div>
 
     <div class="text-center">
-      <button class="btn btn-success" (click)="altaEvento()">
+      <button class="btn btn-success" (click)="altaEvento(altaEventoForm.value)">
         <i class="fa fa-plus"></i> Añadir
       </button>
     </div>
