@@ -23,9 +23,16 @@
     </div>
 
     <div class="form-group">
-      <label for="nombre">Hora:</label>
-      <input type="time" [(ngModel)]="evento.horaEvento" placeholder="Hora" name="horaEvento" class="form-control" id="horaEvento">
+      <label for="precioMinimo">Precio Mínimo:</label>
+      <input type="number" [(ngModel)]="evento.precioMinimo" placeholder="Precio Mínimo" name="precioMinimo"
+          class="form-control" id="precioMinimo">
     </div>
+
+  <div class="form-group">
+      <label for="precioMaximo">Precio Máximo:</label>
+      <input type="number" [(ngModel)]="evento.precioMaximo" placeholder="Precio Máximo" name="precioMaximo"
+          class="form-control" id="precioMaximo">
+  </div>
 
     <div class="form-group">
       <label for="nombre">Normas:</label>
