@@ -20,18 +20,31 @@ export class AltaUsuarioComponent {
   ) {}
 
   guardarUsuario() {
-    console.log(this.usuario.fechaAlta);
+    let mensajesError: string[] = [];
+
     this.userService.createUser(this.usuario).subscribe(
       (response) => {
-        console.log('Usuario añadido:', response);
         this.usuario = new Usuario();
         this.volverAListado();
         this.openPopup();
       },
       (error) => {
-        console.error('Error al añadir usuario:', error);
+        if (error.error && error.error.message) {
+          mensajesError = error.error.message;
+          this.mostrarAlertaErrores(mensajesError); 
+        } else {
+          console.error('Error desconocido:', error);
+        }
       }
     );
+  }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
+    });
+    alert(mensajeAlerta);
   }
 
   openPopup(): void {

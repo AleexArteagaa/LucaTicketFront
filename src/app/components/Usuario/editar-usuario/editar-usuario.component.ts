@@ -33,6 +33,7 @@ export class EditarUsuarioComponent implements OnInit{
   }
 
   guardarCambios() {
+    let mensajesError: string[] = [];
     const fecha = new Date(this.usuario.fechaAlta);
 
     const fechaFormateada = fecha.toLocaleDateString('es-ES', {
@@ -44,17 +45,29 @@ export class EditarUsuarioComponent implements OnInit{
     this.usuario.fechaAlta=fechaFormateada;
     this.userService.editarUsuario(this.usuario.id, this.usuario).subscribe(
       (response) => {
-        console.log('Usuario editado:', response); 
         this.usuario = new Usuario();
         this.openPopup();
         this.irAUsuarios();
       },
       (error) => {
-        console.error('Error al editar usuario:', error);
+        if (error.error && error.error.message) {
+          mensajesError = error.error.message;
+          this.mostrarAlertaErrores(mensajesError); 
+        } else {
+          console.error('Error desconocido:', error);
+        }
       }
     );
   }
 
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
+    });
+    alert(mensajeAlerta);
+  }
+  
   openPopup(): void {
     const dialogRef = this.dialog.open(EditarUsuarioPopupComponent, {
       width: '250px',

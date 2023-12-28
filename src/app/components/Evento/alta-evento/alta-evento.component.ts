@@ -21,6 +21,7 @@ export class AltaEventoComponent implements OnInit {
   ) {}
 
   altaEvento(): void {
+    let mensajesError: string[] = [];
     const fecha = new Date(this.evento.fechaEvento);
 
     const fechaFormateada = fecha
@@ -36,10 +37,29 @@ export class AltaEventoComponent implements OnInit {
     console.log(this.evento.fechaEvento);
   
 
-    this.eventoService.altaEvento(this.evento).subscribe((data) => {
-      this.openPopup();
-      this.volverAListado();
+    this.eventoService.altaEvento(this.evento).subscribe(
+      (response) => {
+        this.evento = new EventoAlta();
+        this.volverAListado();
+        this.openPopup();
+      },
+      (error) => {
+        if (error.error && error.error.message) {
+          mensajesError = error.error.message;
+          this.mostrarAlertaErrores(mensajesError); 
+        } else {
+          console.error('Error desconocido:', error);
+        }
+      }
+    );
+  }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
     });
+    alert(mensajeAlerta);
   }
 
   volverAListado() {
@@ -54,7 +74,7 @@ export class AltaEventoComponent implements OnInit {
     setTimeout(() => {
       dialogRef.close();
     }, 4000);
-  }
+  }                                                    
 
   ngOnInit(): void {
   }
