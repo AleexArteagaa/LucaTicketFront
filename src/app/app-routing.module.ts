@@ -21,7 +21,7 @@ const routes: Routes = [
     component: EventosListComponent 
   },
   { 
-    path: 'eventos/ciudad/:ciudad', 
+    path: 'eventos/ciudad/:localidad', 
     component: EventosCiudadListComponent 
   },
   { 
