@@ -4,7 +4,11 @@
     <div class="col-md-6 table-container">
         <h1> Eventos</h1>
         <button class="btn btn-success" (click)="irAltaEvento()">Añadir</button>
-
+        <div class="col-md-6 table-container float-right">
+            <form class="form-inline my-2 my-lg-0" id="cityForm">
+                <input type="text" id="cityInput" placeholder="Introduce ciudad" aria-label="Introduce ciudad" [(ngModel)]="cityName" name="cityName">
+                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)">Buscar ciudad</button>
+            </form>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -36,5 +40,6 @@
                 </tr>
             </tbody>
         </table>
+        </div> 
     </div>
 </div>

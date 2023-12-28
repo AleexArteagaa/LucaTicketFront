@@ -9,6 +9,7 @@ import { DetalleUsuarioComponent } from './components/Usuario/detalle-usuario/de
 import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento.component';
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
+import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,11 @@ const routes: Routes = [
   {
     path: 'editar-evento/:id',
     component: EditarEventoComponent
-  }
+  },
+  {
+    path: 'editar-usuario/:id',
+    component: EditarUsuarioComponent
+  },
 ];
 
 @NgModule({

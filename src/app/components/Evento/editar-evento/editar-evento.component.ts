@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
+import { EventoAlta } from '../../../model/evento-alta';
 
 @Component({
   selector: 'app-editar-evento',
@@ -12,6 +13,8 @@ import { Recinto } from '../../../model/recinto';
 })
 export class EditarEventoComponent implements OnInit {
   evento!: Evento;
+  eventoEdit: EventoAlta = new EventoAlta();
+  eventoId!: number;
 
   constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder) {
     console.log("----------Componente EditarEvento inicializado.");
@@ -19,9 +22,9 @@ export class EditarEventoComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const eventoId = Number(params.get('id'));
-      if (!isNaN(eventoId)) {
-        this.eventosService.getEventoById(eventoId).subscribe((data) => {
+      this.eventoId = Number(params.get('id'));
+      if (!isNaN(this.eventoId)) {
+        this.eventosService.getEventoById(this.eventoId).subscribe((data) => {
           this.evento = data;
         });
       }
@@ -29,20 +32,30 @@ export class EditarEventoComponent implements OnInit {
   }
 
   editarEvento(valores: any) {
-    console.log("-----EDITAR EVENTO");
-    this.evento.nombre=valores.nombre;
-    this.evento.descripcionCorta=valores.desCorta;
-    this.evento.descripcionExtendida=valores.desExtendida;
-    this.evento.fechaEvento=valores.fechaEvento;
-    this.evento.horaEvento=valores.horaEvento;
-    this.evento.precioMinimo=valores.precioMinimo.substring(0,valores.precioMinimo.length-2);
-    this.evento.precioMaximo=valores.precioMaximo.substring(0,valores.precioMaximo.length-2);
-    this.evento.normas=valores.normas;
-    this.evento.recinto=new Recinto(valores.nombreRecinto);
 
-    this.eventosService.editarEvento(this.evento.id,this.evento)
+    const fecha = new Date(valores.fechaEvento);
+
+    const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, '-');
+
+    console.log("-----EDITAR EVENTO " + this.eventoId);
+    this.eventoEdit.nombre = valores.nombre;
+    this.eventoEdit.descripcionCorta = valores.desCorta;
+    this.eventoEdit.descripcionExtendida = valores.desExtendida;
+    this.eventoEdit.foto=valores.foto;
+    this.eventoEdit.fechaEvento = fechaFormateada;
+    this.eventoEdit.horaEvento = valores.horaEvento;
+    this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
+    this.eventoEdit.precioMaximo = valores.precioMaximo.substring(0, valores.precioMaximo.length - 2);
+    this.eventoEdit.normas = valores.normas;
+    this.eventoEdit.recinto = valores.nombreRecinto;
+
+    this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
       .subscribe(data => {
-        console.log("Usuario editado correctamente.");
+        console.log("Evento editado correctamente.");
       });
   }
 }

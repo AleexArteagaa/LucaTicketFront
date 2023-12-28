@@ -1,19 +1,22 @@
-import { LocalDate } from 'js-joda'; 
+import { LocalDate, DateTimeFormatter } from 'js-joda';
+
 export class Usuario {
   id: number;
   nombre: string;
   apellido: string;
   mail: string;
   contrasenia: string;
-  fechaAlta: LocalDate;
+  fechaAlta: string;
 
   constructor() {
-    this.id = 0; 
+    this.id = 0;
     this.nombre = '';
     this.apellido = '';
     this.mail = '';
     this.contrasenia = '';
-    this.fechaAlta = LocalDate.now();
+
+    const formatter = DateTimeFormatter.ofPattern('dd-MM-yyyy');
+    this.fechaAlta = LocalDate.now().format(formatter);
   }
 
   public getId(): number {
@@ -56,11 +59,11 @@ export class Usuario {
     this.contrasenia = contrasenia;
   }
 
-  public getFechaAlta(): LocalDate {
+  public getFechaAlta(): string {
     return this.fechaAlta;
   }
 
-  public setFechaAlta(fechaAlta: LocalDate): void {
+  public setFechaAlta(fechaAlta: string): void {
     this.fechaAlta = fechaAlta;
   }
 }

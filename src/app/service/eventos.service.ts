@@ -10,7 +10,7 @@ import { EventoAlta } from '../model/evento-alta';
 export class EventosService {
   constructor(private http: HttpClient) {}
 
-  private eventosUrl = 'http://localhost:8081/evento';
+  private eventosUrl = 'http://localhost:3333/evento';
 
   public getEventos() {
     return this.http.get<Evento[]>(this.eventosUrl);
@@ -33,7 +33,7 @@ export class EventosService {
     return this.http.post<Evento>(this.eventosUrl, evento);
   }
 
-  public editarEvento(eventoId: number, evento: Evento){
+  public editarEvento(eventoId: number, evento: EventoAlta){
     return this.http.put<Evento>(this.eventosUrl + "/" + eventoId, evento);
   }
 }

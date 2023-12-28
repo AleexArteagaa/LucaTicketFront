@@ -21,6 +21,11 @@
           </div>
   
           <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="text" class="form-control" name="foto" id="foto" [(ngModel)]="evento.foto" />
+          </div>
+
+          <div class="form-group">
             <label for="fechaEvento">Fecha Evento:</label>
             <input type="date" class="form-control" name="fechaEvento" id="fechaEvento" [(ngModel)]="evento.fechaEvento"/>
           </div>

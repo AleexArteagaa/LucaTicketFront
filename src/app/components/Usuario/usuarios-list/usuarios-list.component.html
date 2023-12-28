@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4">
     <h1><strong>Usuarios</strong></h1>
-    <button class="btn-alta-usuario">Alta usuario</button>
+    <button class="btn-alta-usuario" (click)="irAltaUsuario()">Alta usuario</button>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -20,7 +20,7 @@
                     <button class="btn btn-danger" (click)="deleteUser(user)">
                         <i class="fa fa-trash"></i>
                     </button>                   
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-secondary" (click)="editarUsuario(user.id)">
                         <i class="fa fa-pencil"></i>
                     </button>
                 </td>
