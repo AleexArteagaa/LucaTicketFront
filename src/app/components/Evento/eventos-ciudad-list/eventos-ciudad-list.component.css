@@ -24,6 +24,14 @@ h1{
     
 }
 
+.text-right{
+    margin-top: 20px;
+}
+
+.justify-content-start{
+    margin-top: 20px;
+
+}
 
 .table.table-striped th {
     background-color: #23527c !important; 
