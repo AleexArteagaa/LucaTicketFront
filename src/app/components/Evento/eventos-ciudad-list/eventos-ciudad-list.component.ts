@@ -10,7 +10,7 @@ import { EventosService } from '../../../service/eventos.service';
 })
 export class EventosCiudadListComponent implements OnInit {
   eventos: Evento[] = [];
-  ciudad: string = 'Default';
+  localidad: string = ' ';
 
   constructor(
     private eventosService: EventosService,
@@ -19,9 +19,9 @@ export class EventosCiudadListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.ciudad = params.get('ciudad') ?? '';
+      this.localidad = params.get('localidad') ?? '';
       
-      this.eventosService.findByCiudad(this.ciudad).subscribe((data) => {
+      this.eventosService.findByCiudad(this.localidad).subscribe((data) => {
         this.eventos = data;
       });
     });

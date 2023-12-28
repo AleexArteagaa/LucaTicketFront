@@ -11,6 +11,7 @@ import { EventoDetailComponent } from '../evento-detail/evento-detail.component'
 })
 export class EventosListComponent implements OnInit {
   eventos: Evento[] = [];
+  cityName: string = '';
 
   constructor(private router: Router, private eventosService: EventosService) {}
 
@@ -24,6 +25,12 @@ export class EventosListComponent implements OnInit {
     console.log("entra en get evento details");
     console.log(eventoId);
     this.router.navigate(['/eventos', eventoId]);
+  }
+
+  public getEventoNombre(localidad: string) {
+    console.log("entra en get evento por nombre");
+    console.log(localidad);
+    this.router.navigate(['/eventos/ciudad', localidad]);
   }
 
   deleteEvento(evento: Evento): void {

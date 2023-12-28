@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-md-6 table-container">
-        <h2> Eventos listados por ciudad</h2>
-
+        <h2> Eventos en {{ localidad }}</h2>
+        <ng-container *ngIf="eventos.length > 0">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -34,5 +34,9 @@
                 </tr>
             </tbody>
         </table>
+    </ng-container>
+    <div *ngIf="eventos.length === 0">
+        <p>Listado vacío</p>
+    </div>
     </div>
 </div>

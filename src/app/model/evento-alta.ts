@@ -1,4 +1,4 @@
-import { LocalDate, LocalTime } from 'js-joda';
+import { DateTimeFormatter, LocalDate, LocalTime } from 'js-joda';
 
 export class EventoAlta {
     id: number;
@@ -6,7 +6,7 @@ export class EventoAlta {
     descripcionCorta: string;
     descripcionExtendida: string;
     foto: string;
-    fechaEvento: LocalDate;
+    fechaEvento: string;
     horaEvento: LocalTime;
     precioMinimo: string;
     precioMaximo: string;
@@ -20,7 +20,8 @@ export class EventoAlta {
       this.descripcionCorta = '';
       this.descripcionExtendida = '';
       this.foto = '';
-      this.fechaEvento = LocalDate.now();
+      const formatter = DateTimeFormatter.ofPattern('dd-MM-yyyy');
+      this.fechaEvento = LocalDate.now().format(formatter);
       this.horaEvento = LocalTime.now(); 
       this.precioMinimo = '';
       this.precioMaximo = '';
@@ -68,11 +69,11 @@ export class EventoAlta {
       this.foto=foto;
     }
   
-    public getFechaEvento(): LocalDate{
+    public getFechaEvento(): string{
       return this.fechaEvento;
     }
   
-    public setFechaEvento(fechaEvento: LocalDate): void{
+    public setFechaEvento(fechaEvento: string): void{
       this.fechaEvento=fechaEvento;
     }
     public getHoraEvento(): LocalTime{
