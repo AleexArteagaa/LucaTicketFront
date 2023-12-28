@@ -1,7 +1,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4">
-    <h1><strong>Usuarios</strong></h1>
-    <button class="btn-alta-usuario" (click)="irAltaUsuario()">Alta usuario</button>
+   
+    <div class="row align-items-center">
+        <div class="col-md-4 d-flex justify-content-start">
+            <button class="btn btn-success" (click)="irAltaUsuario()">
+                <i class="fa fa-plus"></i> Añadir
+            </button>
+        </div>
+        <div class="col-md-4 text-right">
+            <h1><strong>Usuarios</strong></h1>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>

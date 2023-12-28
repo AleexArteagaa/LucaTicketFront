@@ -13,7 +13,7 @@
         <div class="col-md-4 d-flex justify-content-end">
             <form class="form-inline my-2 my-lg-0" id="cityForm">
                 <input type="text" id="cityInput" placeholder="Filtrar por ciudad" aria-label="Introduce ciudad" [(ngModel)]="cityName" name="cityName">
-                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)">
+                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)" [disabled]="!cityName">
                     <i class="fa fa-search"></i>
                 </button>
             </form>
