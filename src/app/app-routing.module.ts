@@ -10,6 +10,8 @@ import { AltaEventoComponent } from './components/Evento/alta-evento/alta-evento
 import { EventosCiudadListComponent } from './components/Evento/eventos-ciudad-list/eventos-ciudad-list.component';
 import { EditarEventoComponent } from './components/Evento/editar-evento/editar-evento.component';
 import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/editar-usuario.component';
+import { EntradasListComponent } from './components/Entradas/entradas-list/entradas-list.component';
+import { EntradasCompraComponent } from './components/Entradas/entradas-compra/entradas-compra.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,14 @@ const routes: Routes = [
     path: 'editar-usuario/:id',
     component: EditarUsuarioComponent
   },
+  {
+    path: 'entradas',
+    component: EntradasListComponent
+  },
+  {
+    path: 'entradas/:id',
+    component: EntradasCompraComponent
+  }
 ];
 
 @NgModule({

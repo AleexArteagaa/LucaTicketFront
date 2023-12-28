@@ -19,6 +19,8 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
 import { EditarUsuarioComponent } from './components/Usuario/editar-usuario/editar-usuario.component';
 import { MatCardModule } from '@angular/material/card';
 import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-popup/alta-usuario-popup.component';
+import { EntradasListComponent } from './components/Entradas/entradas-list/entradas-list.component';
+import { EntradasCompraComponent } from './components/Entradas/entradas-compra/entradas-compra.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AltaUsuarioPopupComponent } from './components/Usuario/alta-usuario-pop
     EditarEventoComponent,
     EditarUsuarioComponent,
     EditarEventoComponent,
+    EntradasListComponent,
+    EntradasCompraComponent,
   ],
   imports: [
     BrowserModule,

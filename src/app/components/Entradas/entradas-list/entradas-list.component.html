@@ -1,0 +1,10 @@
+<div class="card-container">
+  <div class="card" *ngFor="let evento of eventos">
+    <img class="card-image" [src]="evento.foto" alt="Imagen del evento">
+    <div class="card-content">
+      <h3 class="card-title">{{ evento.nombre }}</h3>
+      <p class="card-date">{{ evento.fechaEvento }}</p>
+      <button class="btn-comprar">Comprar entrada</button>
+    </div>
+  </div>
+</div>

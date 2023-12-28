@@ -1,6 +1,6 @@
-<div *ngIf="usuario" class="container">
-    <h2>Editar Usuario</h2>
-    <form (ngSubmit)="guardarCambios()">
+<div *ngIf="usuario" class="container mt-4" id="container">
+    <h2><strong>Editar Usuario</strong></h2>
+    <form>
       <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" [(ngModel)]="usuario.nombre" name="nombre" class="form-control" id="nombre" required>
@@ -26,6 +26,9 @@
         <input type="date" [(ngModel)]="usuario.fechaAlta" name="fechaAlta" class="form-control" id="fechaAlta" required>
       </div>
 
-      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      <button class="btn-guardar" (click)="guardarCambios()">Guardar cambios</button>
     </form>
   </div>
+  <div *ngIf="usuario" class="container mt-4">
+    <button class="btn-volver" (click)="irAUsuarios()">Volver</button>
+</div>
