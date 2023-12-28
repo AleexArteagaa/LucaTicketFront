@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container">
+<div class="container mt-4" id="container">
     <h2><strong>Compra de Entrada</strong></h2>
     <form (ngSubmit)="comprarEntrada()">
       <div class="form-group">
@@ -22,9 +22,13 @@
         <label for="cvv">CVV:</label>
         <input type="password" id="cvv" class="form-control" [(ngModel)]="tarjeta.cvv" name="cvv" required>
       </div>
-      <button type="submit" class="btn-comprar">
+      <button type="submit" class="btn-comprar btn-success" >
         <i class="fa fa-credit-card"></i> Comprar
       </button>
     </form>
   </div>
-  
+  <div class="container mt-4">
+    <button class="btn btn-primary mb-3 custom-button" (click)="volverAEntradas()">
+      <i class="fa fa-reply"></i> Volver
+    </button>
+  </div>

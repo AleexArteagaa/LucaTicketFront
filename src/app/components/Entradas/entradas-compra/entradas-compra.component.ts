@@ -42,10 +42,7 @@ export class EntradasCompraComponent {
   comprarEntrada() {
     const idUsuario = 16;
 
-    /*this.entradasService.recogerDatos2(this.tarjeta).subscribe((data) => {
-      console.log("prueba");
-      console.log(data);
-    });*/
+
     
     this.entradasService
       .comprarEntrada(idUsuario, this.evento.id, this.tarjeta)
