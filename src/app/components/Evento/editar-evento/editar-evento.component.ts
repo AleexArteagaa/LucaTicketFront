@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Evento } from '../../../model/evento';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
@@ -16,7 +16,7 @@ export class EditarEventoComponent implements OnInit {
   eventoEdit: EventoAlta = new EventoAlta();
   eventoId!: number;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router) {
     console.log("----------Componente EditarEvento inicializado.");
   }
 
@@ -45,7 +45,7 @@ export class EditarEventoComponent implements OnInit {
     this.eventoEdit.nombre = valores.nombre;
     this.eventoEdit.descripcionCorta = valores.desCorta;
     this.eventoEdit.descripcionExtendida = valores.desExtendida;
-    this.eventoEdit.foto=valores.foto;
+    this.eventoEdit.foto = valores.foto;
     this.eventoEdit.fechaEvento = fechaFormateada;
     this.eventoEdit.horaEvento = valores.horaEvento;
     this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
@@ -56,6 +56,12 @@ export class EditarEventoComponent implements OnInit {
     this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
       .subscribe(data => {
         console.log("Evento editado correctamente.");
+        alert("Evento editado correctamente.");
+        this.volverAlListado();
       });
+  }
+
+  public volverAlListado() {
+    this.router.navigate(['/eventos']);
   }
 }

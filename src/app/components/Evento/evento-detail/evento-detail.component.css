@@ -14,3 +14,7 @@ label, .bold {
 p {
     text-align: justify;
 }
+
+.margin-bot{
+    margin-bottom: 1%;
+}
