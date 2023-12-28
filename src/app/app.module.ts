@@ -6,7 +6,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosListComponent } from './components/Evento/eventos-list/eventos-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosListComponent } from './components/Usuario/usuarios-list/usuarios-list.component';
 import { AltaUsuarioComponent } from './components/Usuario/alta-usuario/alta-usuario.component';
 import { HomeComponent } from './components/home/home.component';
@@ -34,6 +34,7 @@ import { EditarEventoComponent } from './components/Evento/editar-evento/editar-
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
