@@ -9,38 +9,41 @@ import { AltaEventoPopupComponent } from '../alta-evento-popup/alta-evento-popup
 @Component({
   selector: 'app-alta-evento',
   templateUrl: './alta-evento.component.html',
-  styleUrl: './alta-evento.component.css'
+  styleUrl: './alta-evento.component.css',
 })
 export class AltaEventoComponent implements OnInit {
-
-
   evento: EventoAlta = new EventoAlta();
 
-  constructor(private router: Router, private eventoService: EventosService, public dialog: MatDialog)
-  {    
-
-  }
+  constructor(
+    private router: Router,
+    private eventoService: EventosService,
+    public dialog: MatDialog
+  ) {}
 
   altaEvento(): void {
-    
     const fecha = new Date(this.evento.fechaEvento);
-  
-    const fechaFormateada = fecha.toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    }).replace(/\//g, '-'); 
-  
+
+    const fechaFormateada = fecha
+      .toLocaleDateString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+      .replace(/\//g, '-');
+
     this.evento.fechaEvento = fechaFormateada;
-  
+
     console.log(this.evento.fechaEvento);
   
-    this.eventoService.altaEvento(this.evento)
-      .subscribe(data => {
-        this.openPopup();
-        this.volverAlListado();
 
-      });
+    this.eventoService.altaEvento(this.evento).subscribe((data) => {
+      this.openPopup();
+      this.volverAListado();
+    });
+  }
+
+  volverAListado() {
+    this.router.navigate(['/eventos']);
   }
 
   openPopup(): void {
@@ -54,10 +57,6 @@ export class AltaEventoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  public volverAlListado() {
-    this.router.navigate(['/eventos']);
   }
 
 }

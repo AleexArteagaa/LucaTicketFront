@@ -18,4 +18,8 @@ export class EntradasListComponent {
       this.eventos = data;
     });
   }
+
+  public comprarEntrada(eventoId: number) {
+    this.router.navigate(['/entradas', eventoId]);
+  }
 }

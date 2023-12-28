@@ -1,54 +1,62 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="col-md-6">
-    <h2 class="text-center">Crear nuevo evento</h2>
+<div class="container mt-4" id="container">
+  <h2 class="text-center"><strong>Crear nuevo evento</strong></h2>
   <form>
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input  [(ngModel)]="evento.nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
-    </div>
-  
-    <div class="form-group">
-      <label for="nombre">Descripción Corta:</label>
-      <input  [(ngModel)]="evento.descripcionCorta" placeholder="Descripción Corta" name="descripcionCorta" class="form-control" id="descripcionCorta">
+      <input [(ngModel)]="evento.nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
     </div>
 
     <div class="form-group">
-      <label for="nombre">Descripción Extendida:</label>  
-      <textarea type="text" [(ngModel)]="evento.descripcionExtendida" placeholder="Descripción Extendida" name="descripcionExtendida" class="form-control" id="descripcionExtendida">
+      <label for="nombre">Descripción Corta:</label>
+      <input [(ngModel)]="evento.descripcionCorta" placeholder="Descripción Corta" name="descripcionCorta"
+        class="form-control" id="descripcionCorta">
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Descripción Extendida:</label>
+      <textarea type="text" [(ngModel)]="evento.descripcionExtendida" placeholder="Descripción Extendida"
+        name="descripcionExtendida" class="form-control" id="descripcionExtendida">
       </textarea>
     </div>
-  
+
     <div class="form-group">
       <label for="nombre">Fecha:</label>
-      <input type="date" [(ngModel)]="evento.fechaEvento" placeholder="Fecha" name="fechaEvento" class="form-control" id="fechaEvento">
+      <input type="date" [(ngModel)]="evento.fechaEvento" placeholder="Fecha" name="fechaEvento" class="form-control"
+        id="fechaEvento">
     </div>
 
     <div class="form-group">
       <label for="precioMinimo">Precio Mínimo:</label>
       <input type="number" [(ngModel)]="evento.precioMinimo" placeholder="Precio Mínimo" name="precioMinimo"
-          class="form-control" id="precioMinimo">
+        class="form-control" id="precioMinimo">
     </div>
 
-  <div class="form-group">
+    <div class="form-group">
       <label for="precioMaximo">Precio Máximo:</label>
       <input type="number" [(ngModel)]="evento.precioMaximo" placeholder="Precio Máximo" name="precioMaximo"
-          class="form-control" id="precioMaximo">
-  </div>
+        class="form-control" id="precioMaximo">
+    </div>
 
     <div class="form-group">
       <label for="nombre">Normas:</label>
-      <input  [(ngModel)]="evento.normas" placeholder="Normas" name="normas" class="form-control" id="normas">
+      <input [(ngModel)]="evento.normas" placeholder="Normas" name="normas" class="form-control" id="normas">
     </div>
 
     <div class="form-group">
       <label for="nombre">Recinto:</label>
-      <input  [(ngModel)]="evento.recinto" placeholder="Recinto" name="recinto" class="form-control" id="recinto">
+      <input [(ngModel)]="evento.recinto" placeholder="Recinto" name="recinto" class="form-control" id="recinto">
     </div>
-  
+
     <div class="text-center">
       <button class="btn btn-success" (click)="altaEvento()">
-          <i class="fa fa-plus"></i> Añadir
+        <i class="fa fa-plus"></i> Añadir
       </button>
-  </div>
+    </div>
   </form>
+</div>
+<div class="container mt-4">
+  <button class="btn btn-primary mb-3 custom-button" (click)="volverAListado()">
+      <i class="fa fa-reply"></i> Volver
+  </button>
 </div>
