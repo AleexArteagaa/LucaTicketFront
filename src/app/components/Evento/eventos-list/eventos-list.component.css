@@ -11,7 +11,7 @@
 #cityForm, #cityInput {
     display: flex;
     align-items: center;
-    max-height: 40px; /* Ajusta el valor según tus preferencias */
+    max-height: 40px; 
 }
 
 #cityInput {
@@ -86,7 +86,6 @@ h1{
 }
 
 .clickDetalleEvento:hover {
-        cursor: pointer;
-        text-decoration: underline;
-        color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }

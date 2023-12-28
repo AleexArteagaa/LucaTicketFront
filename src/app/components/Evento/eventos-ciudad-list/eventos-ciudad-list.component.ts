@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { Evento } from '../../../model/evento';
 import { EventosService } from '../../../service/eventos.service';
 
@@ -14,7 +16,8 @@ export class EventosCiudadListComponent implements OnInit {
 
   constructor(
     private eventosService: EventosService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +36,16 @@ export class EventosCiudadListComponent implements OnInit {
       console.log("Evento borrado");
       this.eventos = this.eventos.filter((u) => u !== evento);
     });
+  }
+
+  editarEvento(eventoId: Number): void{
+    console.log("-----Entra en editar el evento con ID:" +eventoId );
+    this.router.navigate(['/editar-evento', eventoId]);
+  }
+
+  public getEventoDetails(eventoId: number) {
+    console.log("entra en get evento details");
+    console.log(eventoId);
+    this.router.navigate(['/eventos', eventoId]);
   }
 }
