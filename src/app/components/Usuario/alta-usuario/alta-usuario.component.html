@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4" id="container">
     <h2><strong>Alta de Usuario</strong></h2>
     <form>
@@ -17,10 +18,16 @@
             <label for="contrasenia">Contraseña:</label>
             <input type="password" id="contrasenia" name="contrasenia" class="form-control" [(ngModel)]="usuario.contrasenia" required>
         </div>
-        <button class="btn-guardar" (click)="guardarUsuario()">Añadir usuario</button>
+        <div class="text-center">
+            <button class="btn btn-success" (click)="guardarUsuario()">
+                <i class="fa fa-plus"></i> Añadir
+            </button>
+        </div>
     </form>
 </div>
 <div class="container mt-4">
-    <button class="btn-volver" (click)="volverAListado()">Volver</button>
+    <button class="btn btn-primary mb-3 custom-button" (click)="volverAListado()">
+        <i class="fa fa-reply"></i> Volver
+    </button>
 </div>
 

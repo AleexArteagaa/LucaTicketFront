@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="col-md-6">
     <h2 class="text-center">Crear nuevo evento</h2>
   <form>
@@ -44,6 +45,10 @@
       <input  [(ngModel)]="evento.recinto" placeholder="Recinto" name="recinto" class="form-control" id="recinto">
     </div>
   
-    <button class="btn btn-success" (click)="altaEvento()">Create</button>
+    <div class="text-center">
+      <button class="btn btn-success" (click)="altaEvento()">
+          <i class="fa fa-plus"></i> Añadir
+      </button>
+  </div>
   </form>
 </div>

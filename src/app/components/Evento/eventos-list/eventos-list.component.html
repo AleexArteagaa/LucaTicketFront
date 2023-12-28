@@ -1,14 +1,25 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
-    <div class="col-md-6 table-container">
-        <h1> Eventos</h1>
-        <button class="btn btn-success" (click)="irAltaEvento()">Añadir</button>
-        <div class="col-md-6 table-container float-right">
+    <div class="row align-items-center">
+        <div class="col-md-4 d-flex justify-content-start">
+            <button class="btn btn-success" (click)="irAltaEvento()">
+                <i class="fa fa-plus"></i> Añadir
+            </button>
+        </div>
+        <div class="col-md-4 text-right">
+            <h1><strong>Eventos</strong></h1>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
             <form class="form-inline my-2 my-lg-0" id="cityForm">
-                <input type="text" id="cityInput" placeholder="Introduce ciudad" aria-label="Introduce ciudad"[(ngModel)]="cityName">
-                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)">Buscar ciudad</button>
+                <input type="text" id="cityInput" placeholder="Filtrar por ciudad" aria-label="Introduce ciudad" [(ngModel)]="cityName" name="cityName">
+                <button class="btn btn-buscar-ciudad" (click)="getEventoNombre(cityName)" [disabled]="!cityName">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
+        </div>
+    </div>
+    <div class="col-md-12 table-container mt-4">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -40,6 +51,5 @@
                 </tr>
             </tbody>
         </table>
-        </div> 
     </div>
 </div>
