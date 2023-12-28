@@ -1,4 +1,19 @@
-.container {
+.btn-buscar-ciudad {
+    background-color: rgb(69, 142, 226);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+  .btn-buscar-ciudad:hover {
+    background-color: rgba(69, 142, 226, 0.8);
+}
+  
+  .container {
     justify-content: center;
     align-items: center;
 }
