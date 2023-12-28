@@ -1,6 +1,7 @@
 .container {
   width: 70%;
   margin: 0 auto;
+  margin-top: 40px;
   padding: 20px;
   background-color: #f5f5f5; /* Color de fondo */
   border-radius: 8px;

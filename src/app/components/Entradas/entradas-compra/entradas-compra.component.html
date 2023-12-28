@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <h2><strong>Compra de Entrada</strong></h2>
     <form (ngSubmit)="comprarEntrada()">
@@ -21,7 +22,9 @@
         <label for="cvv">CVV:</label>
         <input type="password" id="cvv" class="form-control" [(ngModel)]="tarjeta.cvv" name="cvv" required>
       </div>
-      <button type="submit" class="btn-comprar">Comprar Entrada</button>
+      <button type="submit" class="btn-comprar">
+        <i class="fa fa-credit-card"></i> Comprar
+      </button>
     </form>
   </div>
   
