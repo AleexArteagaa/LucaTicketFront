@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { NgModule } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-usuario-popup',

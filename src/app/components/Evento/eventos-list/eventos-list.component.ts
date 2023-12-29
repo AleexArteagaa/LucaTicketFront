@@ -34,9 +34,8 @@ export class EventosListComponent implements OnInit {
   }
 
   deleteEvento(evento: Evento): void {
-    console.log("Entra en la funcion deleteEvento");
     this.eventosService.deleteEvento(evento).subscribe((data) => {
-      console.log("Evento borrado");
+      alert("Evento eliminado correctamente");
       this.eventos = this.eventos.filter((u) => u !== evento);
     });
   }
