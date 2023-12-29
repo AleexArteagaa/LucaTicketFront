@@ -15,7 +15,7 @@ import { GifFotoService } from '../../../service/gif-foto.service';
 export class AltaEventoComponent implements OnInit {
   evento: EventoAlta = new EventoAlta();
   constructor(
-    private router: Router,
+    public router: Router,
     private eventoService: EventosService,
     public dialog: MatDialog,
     private gifFoto: GifFotoService
