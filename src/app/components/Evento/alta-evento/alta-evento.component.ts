@@ -5,6 +5,7 @@ import { EventoAlta } from '../../../model/evento-alta';
 import { DateTimeFormatter, LocalDate } from 'js-joda';
 import { MatDialog } from '@angular/material/dialog';
 import { AltaEventoPopupComponent } from '../alta-evento-popup/alta-evento-popup.component';
+import { GifFotoService } from '../../../service/gif-foto.service';
 
 @Component({
   selector: 'app-alta-evento',
@@ -13,14 +14,15 @@ import { AltaEventoPopupComponent } from '../alta-evento-popup/alta-evento-popup
 })
 export class AltaEventoComponent implements OnInit {
   evento: EventoAlta = new EventoAlta();
-
   constructor(
     private router: Router,
     private eventoService: EventosService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private gifFoto: GifFotoService
+  ) { }
 
-  altaEvento(): void {
+  altaEvento(valores: any): void {
+    let mensajesError: string[] = [];
     const fecha = new Date(this.evento.fechaEvento);
 
     const fechaFormateada = fecha
@@ -33,12 +35,36 @@ export class AltaEventoComponent implements OnInit {
 
     this.evento.fechaEvento = fechaFormateada;
 
-    console.log(this.evento.fechaEvento);
+    this.gifFoto.get(valores.foto)
+      .then((url: string) => {
+        this.evento.foto = url;
+        console.log(this.evento.fechaEvento);
 
-    this.eventoService.altaEvento(this.evento).subscribe((data) => {
-      this.openPopup();
-      this.volverAListado();
+        this.eventoService.altaEvento(this.evento).subscribe(
+          (response) => {
+            this.evento = new EventoAlta();
+            this.volverAListado();
+            this.openPopup();
+          },
+          (error) => {
+            if (error.error && error.error.message) {
+              console.log(error.error);
+              mensajesError = error.error.message;
+              this.mostrarAlertaErrores(mensajesError); 
+            } else {
+              console.error('Error desconocido:', error);
+            }
+          }
+        );
+      });
+  }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
     });
+    alert(mensajeAlerta);
   }
 
   volverAListado() {
@@ -53,7 +79,8 @@ export class AltaEventoComponent implements OnInit {
     setTimeout(() => {
       dialogRef.close();
     }, 4000);
-  }
+  }                                                    
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

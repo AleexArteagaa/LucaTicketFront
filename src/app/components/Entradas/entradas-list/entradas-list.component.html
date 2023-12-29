@@ -1,10 +1,12 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card-container">
   <div class="card" *ngFor="let evento of eventos">
     <img class="card-image" [src]="evento.foto" alt="Imagen del evento">
     <div class="card-content">
       <h3 class="card-title">{{ evento.nombre }}</h3>
       <p class="card-date">{{ evento.fechaEvento }}</p>
-      <button class="btn-comprar" (click)="comprarEntrada(evento.id)">Comprar entrada</button>
-    </div>
+      <button class="btn-comprar" (click)="comprarEntrada(evento.id)">
+        <i class="fa fa-ticket"></i> Comprar
+      </button>    </div>
   </div>
 </div>

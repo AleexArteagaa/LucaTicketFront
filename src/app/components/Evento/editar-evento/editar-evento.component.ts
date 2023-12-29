@@ -5,6 +5,8 @@ import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
 import { EventoAlta } from '../../../model/evento-alta';
+import { EditarEventoPopupComponent } from '../editar-evento-popup/editar-evento-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 import { url } from 'inspector';
 import { GifFotoService } from '../../../service/gif-foto.service';
 import { finalize, tap } from 'rxjs';
@@ -19,7 +21,7 @@ export class EditarEventoComponent implements OnInit {
   eventoEdit: EventoAlta = new EventoAlta();
   eventoId!: number;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, private gifFoto: GifFotoService) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, private gifFoto: GifFotoService , public dialog: MatDialog) {
     console.log("----------Componente EditarEvento inicializado.");
   }
 
@@ -35,7 +37,7 @@ export class EditarEventoComponent implements OnInit {
   }
 
   editarEvento(valores: any) {
-
+    let mensajesError: string[] = [];
     const fecha = new Date(valores.fechaEvento);
 
     const fechaFormateada = fecha.toLocaleDateString('es-ES', {
@@ -44,32 +46,61 @@ export class EditarEventoComponent implements OnInit {
       year: 'numeric'
     }).replace(/\//g, '-');
 
-    console.log("-----EDITAR EVENTO " + this.eventoId);
 
     this.gifFoto.get(valores.foto)
-      .then((url: string) => {
-        this.eventoEdit.foto = url;
-        this.eventoEdit.nombre = valores.nombre;
-        this.eventoEdit.descripcionCorta = valores.desCorta;
-        this.eventoEdit.descripcionExtendida = valores.desExtendida;
-        this.eventoEdit.fechaEvento = fechaFormateada;
-        this.eventoEdit.horaEvento = valores.horaEvento;
-        this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
-        this.eventoEdit.precioMaximo = valores.precioMaximo.substring(0, valores.precioMaximo.length - 2);
-        this.eventoEdit.normas = valores.normas;
-        this.eventoEdit.recinto = valores.nombreRecinto;
+    .then((url: string) => {
+      this.eventoEdit.foto = url;
+      this.eventoEdit.nombre = valores.nombre;
+      this.eventoEdit.descripcionCorta = valores.desCorta;
+      this.eventoEdit.descripcionExtendida = valores.desExtendida;
+      this.eventoEdit.fechaEvento = fechaFormateada;
+      this.eventoEdit.horaEvento = valores.horaEvento;
+      this.eventoEdit.precioMinimo = valores.precioMinimo.substring(0, valores.precioMinimo.length - 2);
+      this.eventoEdit.precioMaximo = valores.precioMaximo.substring(0, valores.precioMaximo.length - 2);
+      this.eventoEdit.normas = valores.normas;
+      this.eventoEdit.recinto = valores.nombreRecinto;
 
-        this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
-          .subscribe(data => {
-            console.log("Evento editado correctamente.");
-            alert("Evento editado correctamente.");
+    
+      this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
+        .subscribe(
+          (response) => {
+            this.evento = new Evento();
+            this.eventoEdit = new EventoAlta;
+            this.openPopup();
+
             this.volverAlListado();
-          });
-      });
-
+          },
+          (error) => {
+            if (error.error && error.error.message) {
+              mensajesError = error.error.message;
+              this.mostrarAlertaErrores(mensajesError); 
+            } else {
+              console.error('Error desconocido:', error);
+            }
+          }
+        );
+    });
   }
+       openPopup(): void {
+        const dialogRef = this.dialog.open(EditarEventoPopupComponent, {
+          width: '250px',
+        });
+    
+        setTimeout(() => {
+          dialogRef.close();
+        }, 4000);
+      }
+
+  mostrarAlertaErrores(mensajesError: string[]) {
+    let mensajeAlerta = 'Error/es:\n\n';
+    mensajesError.forEach((mensaje) => {
+      mensajeAlerta += `• ${mensaje}\n`;
+    });
+    alert(mensajeAlerta);
+  } 
 
   public volverAlListado() {
     this.router.navigate(['/eventos']);
   }
 }
+

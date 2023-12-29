@@ -61,6 +61,15 @@
   background-color: rgba(69, 142, 226, 0.8);
 }
 
+.custom-button {
+  background-color: rgb(69, 142, 226);
+}
+
+.custom-button:hover {
+  background-color: #007bb5; 
+}
+
+
 @media screen and (max-width: 768px) {
   .btn-volver {
     font-size: 14px;
