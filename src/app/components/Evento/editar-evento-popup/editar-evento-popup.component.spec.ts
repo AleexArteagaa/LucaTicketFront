@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditarEventoPopupComponent } from './editar-evento-popup.component';
+import { MatCard } from '@angular/material/card';
 
 describe('EditarEventoPopupComponent', () => {
   let component: EditarEventoPopupComponent;
@@ -8,7 +9,8 @@ describe('EditarEventoPopupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EditarEventoPopupComponent]
+      declarations: [EditarEventoPopupComponent],
+      imports: [MatCard]
     })
     .compileComponents();
     

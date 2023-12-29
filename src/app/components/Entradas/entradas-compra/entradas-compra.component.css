@@ -1,6 +1,6 @@
 #container {
   padding: 20px;
-  background-color: #f5f5f5; 
+  background-color: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -24,7 +24,7 @@ label {
   border: 1px solid rgb(69, 142, 226);
 }
 
-.btn-success {
+.btn-guardar {
   padding: 10px 20px;
   background-color: rgb(69, 142, 226);
   color: white;
@@ -34,7 +34,7 @@ label {
   transition: background-color 0.3s ease;
 }
 
-.btn-success{
+.btn-guardar:hover {
   background-color: rgba(69, 142, 226, 0.8);
 }
 
@@ -53,5 +53,3 @@ label {
 .btn-success {
   align-items: center;
 }
-
-

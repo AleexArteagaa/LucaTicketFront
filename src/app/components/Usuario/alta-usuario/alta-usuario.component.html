@@ -1,22 +1,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container mt-4" id="container">
-    <h2><strong>Alta de Usuario</strong></h2>
+    <h2 class="text-center"><strong>Alta de Usuario</strong></h2>
     <form>
         <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="usuario.nombre" required>
+            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre"
+                [(ngModel)]="usuario.nombre" required>
         </div>
         <div class="form-group">
             <label for="apellido">Apellidos:</label>
-            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellidos" [(ngModel)]="usuario.apellido" required>
+            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellidos"
+                [(ngModel)]="usuario.apellido" required>
         </div>
         <div class="form-group">
             <label for="mail">Correo electrónico:</label>
-            <input type="email" id="mail" name="mail" class="form-control" placeholder="Correo electrónico" [(ngModel)]="usuario.mail" required>
+            <input type="email" id="mail" name="mail" class="form-control" placeholder="Correo electrónico"
+                [(ngModel)]="usuario.mail" required>
         </div>
         <div class="form-group">
             <label for="contrasenia">Contraseña:</label>
-            <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña" class="form-control" [(ngModel)]="usuario.contrasenia" required>
+            <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña" class="form-control"
+                [(ngModel)]="usuario.contrasenia" required>
         </div>
         <div class="text-center">
             <button class="btn btn-success" (click)="guardarUsuario()">
@@ -30,4 +34,3 @@
         <i class="fa fa-reply"></i> Volver
     </a>
 </div>
-
