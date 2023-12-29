@@ -4,11 +4,12 @@ import { AltaEventoComponent } from './alta-evento.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GifFotoService } from '../../../service/gif-foto.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing'; // Agrega el import para HttpClientTestingModule
+import { HttpClientTestingModule } from '@angular/common/http/testing'; 
 import { EventosService } from '../../../service/eventos.service';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { LocalDate, LocalTime } from 'js-joda';
 
 describe('Componente AltaEvento', () => {
   let component: AltaEventoComponent;
@@ -70,4 +71,20 @@ describe('Componente AltaEvento', () => {
 
     expect(component.router.navigate).toHaveBeenCalledWith(['/eventos']);
   });
+
+  it('should initialize an empty user', () => {
+    const currentDate = LocalDate.now();
+    const currentDateAsString = currentDate.toString(); 
+  
+    expect(component.evento.id).toBe(0);
+    expect(component.evento.nombre).toBe('');
+    expect(component.evento.descripcionCorta).toBe('');
+    expect(component.evento.descripcionExtendida).toBe('');
+    expect(component.evento.fechaEvento.toString()).toEqual(currentDateAsString);
+    expect(component.evento.precioMinimo).toBe('');
+    expect(component.evento.precioMaximo).toBe('');
+    expect(component.evento.normas).toBe('');
+    expect(component.evento.recinto).toBe('');
+  });
+
 });
