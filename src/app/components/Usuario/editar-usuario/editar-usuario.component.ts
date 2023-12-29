@@ -3,6 +3,7 @@ import { Usuario } from '../../../model/usuario';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../../service/usuarios.service';
 import { EditarUsuarioPopupComponent } from '../editar-usuario-popup.component/editar-usuario-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -12,12 +13,12 @@ import { EditarUsuarioPopupComponent } from '../editar-usuario-popup.component/e
 export class EditarUsuarioComponent implements OnInit{
 
   usuario!: Usuario;
-  dialog: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UsuariosService
+    private userService: UsuariosService,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {

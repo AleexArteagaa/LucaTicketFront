@@ -5,6 +5,8 @@ import { EventosService } from '../../../service/eventos.service';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { Recinto } from '../../../model/recinto';
 import { EventoAlta } from '../../../model/evento-alta';
+import { EditarEventoPopupComponent } from '../editar-evento-popup/editar-evento-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 import { url } from 'inspector';
 import { GifFotoService } from '../../../service/gif-foto.service';
 import { finalize, tap } from 'rxjs';
@@ -19,7 +21,7 @@ export class EditarEventoComponent implements OnInit {
   eventoEdit: EventoAlta = new EventoAlta();
   eventoId!: number;
 
-  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, private gifFoto: GifFotoService) {
+  constructor(private route: ActivatedRoute, private eventosService: EventosService, private fb: FormBuilder, private router: Router, private gifFoto: GifFotoService , public dialog: MatDialog) {
     console.log("----------Componente EditarEvento inicializado.");
   }
 
@@ -44,7 +46,6 @@ export class EditarEventoComponent implements OnInit {
       year: 'numeric'
     }).replace(/\//g, '-');
 
-    console.log("-----EDITAR EVENTO " + this.eventoId);
 
     this.gifFoto.get(valores.foto)
     .then((url: string) => {
@@ -59,11 +60,14 @@ export class EditarEventoComponent implements OnInit {
       this.eventoEdit.normas = valores.normas;
       this.eventoEdit.recinto = valores.nombreRecinto;
 
+    
       this.eventosService.editarEvento(this.eventoId, this.eventoEdit)
         .subscribe(
           (response) => {
             this.evento = new Evento();
             this.eventoEdit = new EventoAlta;
+            this.openPopup();
+
             this.volverAlListado();
           },
           (error) => {
@@ -77,6 +81,15 @@ export class EditarEventoComponent implements OnInit {
         );
     });
   }
+       openPopup(): void {
+        const dialogRef = this.dialog.open(EditarEventoPopupComponent, {
+          width: '250px',
+        });
+    
+        setTimeout(() => {
+          dialogRef.close();
+        }, 4000);
+      }
 
   mostrarAlertaErrores(mensajesError: string[]) {
     let mensajeAlerta = 'Error/es:\n\n';
@@ -90,3 +103,4 @@ export class EditarEventoComponent implements OnInit {
     this.router.navigate(['/eventos']);
   }
 }
+
