@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetalleUsuarioComponent } from './detalle-usuario.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('DetalleUsuarioComponent', () => {
   let component: DetalleUsuarioComponent;
@@ -11,7 +12,8 @@ describe('DetalleUsuarioComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [DetalleUsuarioComponent],
       imports: [ 
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
+        HttpClientTestingModule
       ],
     })
     .compileComponents();
