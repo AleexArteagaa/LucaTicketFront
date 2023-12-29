@@ -7,7 +7,6 @@ import { Recinto } from '../../../model/recinto';
 import { EventoAlta } from '../../../model/evento-alta';
 import { EditarEventoPopupComponent } from '../editar-evento-popup/editar-evento-popup.component';
 import { MatDialog } from '@angular/material/dialog';
-import { url } from 'inspector';
 import { GifFotoService } from '../../../service/gif-foto.service';
 import { finalize, tap } from 'rxjs';
 
