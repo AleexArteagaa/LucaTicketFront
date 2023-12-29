@@ -23,6 +23,7 @@ export class UsuariosListComponent implements OnInit {
 
   deleteUser(user: Usuario): void {
     this.userService.deleteUser(user).subscribe((data) => {
+      alert("Usuario eliminado correctamente");
       this.users = this.users.filter((u) => u !== user);
     });
   }

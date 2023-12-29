@@ -1,11 +1,11 @@
+#container {
+  margin-top: 2% !important;
+}
+
 .container {
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: auto;
-  margin-top: 5%;
-  position: relative;
-  padding-bottom: 60px;
 }
 
 .usuario-box {
